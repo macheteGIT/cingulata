@@ -1,0 +1,20 @@
+* {
+    background: #C3C3C3;
+    color: #484747;
+}
+
+.header {
+	width: 100%;
+    display: table;
+    text-align: center;
+}
+
+.footer {
+	width: 100%;
+    display: table;
+    text-align: center;
+}
+
+.content {
+	
+}

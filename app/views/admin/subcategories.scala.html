@@ -1,0 +1,8 @@
+@(subcategories: Seq[String])
+@main {
+	<ul>
+	@for(subcategory <- subcategories) {
+		<li>@subcategory</li>
+	}
+	</ul>
+}

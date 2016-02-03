@@ -1,0 +1,35 @@
+@(content: Html = Html(""))
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Cingulata</title>
+        <link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/main.css")">
+	</head>
+	<body>
+		<header>
+			<section>
+				<div class="header">Header</div>
+			</section>
+		</header>
+		<main>
+			<section class="content">
+				<ul>
+					<li>
+						<a href="#">Items</a>
+					</li>
+					<li>
+						<a href="#">Administration</a>
+					</li>
+				</ul>
+			</section>
+			<section class="content">
+				@content
+			</section>
+		</main>
+		<footer>
+			<section>
+				<span class="footer">Systems</span>
+			</section>
+		</footer>
+	</body>
+</html>

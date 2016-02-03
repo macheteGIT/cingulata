@@ -1,0 +1,14 @@
+@(categories: Seq[String])
+@main {
+    <table>
+        <form>
+        @for(category <- categories) {
+            <tr>
+                <td>
+                    <label><input type="checkbox" value="@category">@category</label>
+                </td>
+            </tr>
+        }
+        </form>
+    </table>
+}

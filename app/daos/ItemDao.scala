@@ -1,0 +1,83 @@
+package daos
+
+import com.google.inject.{ImplementedBy, Inject, Singleton}
+import com.mongodb.BasicDBObject
+import com.mongodb.casbah.commons.MongoDBObject
+import com.mongodb.casbah.{MongoCollection}
+import org.bson.types.ObjectId
+
+import scala.concurrent.Future
+import scala.concurrent.ExecutionContext.Implicits.global
+
+import scala.collection.JavaConversions._
+
+import models.Item
+import services.Mongo
+
+/**
+  * Created by kuzmentsov@gmail.com
+ */
+@ImplementedBy(classOf[ItemDaoImpl]) trait ItemDao {
+  protected val pagingRange = 5
+
+  def find(itemId: String): Future[Item]
+
+  @deprecated def all: Future[Seq[Item]]
+
+  def allForPage(pageNum: Int): Future[Seq[Item]]
+
+  def findByHost(host: String): Future[Item] = ???
+
+  def allCategories: Future[Seq[String]]
+
+  def allSubCategories: Future[Seq[String]]
+
+  def allHosts: Future[List[String]] = ???
+}
+
+@Singleton class ItemDaoImpl @Inject()(mongo: Mongo) extends ItemDao {
+  val items: MongoCollection = mongo.collection("items")
+
+  def find(itemId: String): Future[Item] = {
+    Future {
+      objAsItem(items.findOne(MongoDBObject("_id" -> new ObjectId(itemId))).get.asInstanceOf[BasicDBObject])
+    }
+  }
+
+  @deprecated def all: Future[Seq[Item]] = {
+    Future {
+      items.find().map(x => objAsItem(x.asInstanceOf[BasicDBObject])).toList
+    }
+  }
+
+  def allForPage(pageNum: Int): Future[Seq[Item]] = {
+    Future {
+      items.find().skip(pageNum * pagingRange).limit(pagingRange).map(x => objAsItem(x.asInstanceOf[BasicDBObject])).toList
+    }
+  }
+
+  def allCategories: Future[Seq[String]] = {
+    Future {
+      items.distinct("category").map(_.toString)
+    }
+  }
+
+  override def allSubCategories: Future[Seq[String]] = {
+    Future {
+      items.distinct("subcategory").map(_.toString)
+    }
+  }
+
+  private def objAsItem(obj: BasicDBObject): Item = {
+    Item(
+      obj.getObjectId("_id").toHexString,
+      obj.getString("host"),
+      obj.getString("url"),
+      obj.getString("title"),
+      obj.getString("category"),
+      obj.getString("subcategory"),
+      obj.getDouble("price"),
+      obj.get("features").asInstanceOf[BasicDBObject].map(x => (x._1, x._2.toString)).toMap
+    )
+  }
+}
