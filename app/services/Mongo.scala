@@ -15,7 +15,7 @@ import scala.concurrent.Future
 class Mongo @Inject()(applicationLifecycle: ApplicationLifecycle, configuration: Configuration) {
 
   //init of connection
-  val mongoConn = MongoConnection()
+  val mongoConn = MongoConnection(configuration.getString("mongo.db.host").get, configuration.getInt("mongo.db.port").get)
 
   //selecting collection from properties
   val collection: MongoDB = mongoConn(configuration.getString("mongo.db.name").get)
