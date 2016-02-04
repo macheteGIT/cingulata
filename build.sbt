@@ -6,6 +6,8 @@ lazy val `cingulata` = (project in file(".")).enablePlugins(PlayScala)
 
 scalaVersion := "2.11.7"
 
+herokuAppName in Compile := "cingulata"
+
 routesGenerator := InjectedRoutesGenerator
 
 libraryDependencies ++= Seq(jdbc, cache, ws, filters, specs2 % Test)
