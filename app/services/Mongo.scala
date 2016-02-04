@@ -14,21 +14,16 @@ import scala.concurrent.Future
   */
 @Singleton
 class Mongo @Inject()(applicationLifecycle: ApplicationLifecycle, configuration: Configuration) {
-
-  val path = "mongodb://beaver:wai3Ughi@ds045521.mongolab.com:45521/cingulata"
-  val uri = MongoClientURI(path)
+  //init of connection
   val server = new ServerAddress(configuration.getString("mongo.db.host").get, configuration.getInt("mongo.db.port").get)
 
   val credentials = MongoCredential.createCredential(
     configuration.getString("mongo.db.username").get,
-    "admin",
+    configuration.getString("mongo.db.name").get,
     configuration.getString("mongo.db.password").get.toCharArray
   )
 
-  //val client = MongoClient(List(server), List(credentials))
-  val client = MongoClient(uri)
-  //init of connection
-  //val mongoConn = MongoConnection(configuration.getString("mongo.db.host").get, configuration.getInt("mongo.db.port").get)
+  val client = MongoClient(List(server), List(credentials))
 
   //selecting collection from properties
   val collection: MongoDB = client(configuration.getString("mongo.db.name").get)
