@@ -1,12 +1,15 @@
-name := "cingulata"
+lazy val projectName = "cingulata"
+
+name := projectName
+
+//heroku config
+herokuAppName in Compile := projectName
 
 version := "1.0"
 
 lazy val `cingulata` = (project in file(".")).enablePlugins(PlayScala)
 
 scalaVersion := "2.11.7"
-
-herokuAppName in Compile := "cingulata"
 
 routesGenerator := InjectedRoutesGenerator
 

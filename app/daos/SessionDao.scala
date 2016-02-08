@@ -21,6 +21,8 @@ import models.{Session}
 trait SessionDao {
   def find(sessionId: String): Future[Session]
 
+  def find(): Future[Seq[Session]]
+
   def findByUserId(userId: String): Future[Session]
 
   def save(session: Session): Unit
@@ -54,6 +56,11 @@ class MongoSessionDao @Inject()(mongo: Mongo) extends SessionDao {
     sessions.remove(MongoDBObject("_id" -> new ObjectId(sessionId))).isUpdateOfExisting
   }
 
+  override def find(): Future[Seq[Session]] = {
+    Future {
+      sessions.find().map(session => objAsSession(session.asInstanceOf[BasicDBObject])).toList
+    }
+  }
 /*  override def updateLastActivity(sessionId: String): Future[UpdateResult] = {
     sessions.findA(equal("_id", sessionId), set("lastActivity", System.currentTimeMillis())).head()
   }*/

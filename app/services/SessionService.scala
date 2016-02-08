@@ -14,6 +14,8 @@ class SessionService @Inject()(sessionDao: SessionDao,
                                userDao: UserDao) {
   def find(sessionId: String): Future[Session] = sessionDao.find(sessionId)
 
+  def find(): Future[Seq[Session]] = sessionDao.find()
+
   def findUserBySessionId(sessionId: String): Future[User] = find(sessionId).flatMap(session =>
     userDao.find(session.userId)
   )

@@ -1,15 +1,16 @@
   package controllers
 
+import actions.SecureAction
 import com.google.inject.Inject
 import models.Item
 import play.api.libs.concurrent.Execution.Implicits.defaultContext
 import play.api.mvc._
-import services.ItemService
+import services.{SessionService, ItemService}
 
 /**
   * Created by kuzmentsov@gmail.com
   */
-class AdminController @Inject()(itemService: ItemService) extends Controller {
+class AdminController @Inject()(itemService: ItemService, sessionService: SessionService, SecuredAction: SecureAction) extends Controller {
 
   def hostsAvailable = Action.async {
     implicit request => {
@@ -20,4 +21,9 @@ class AdminController @Inject()(itemService: ItemService) extends Controller {
     }
   }
 
+  def userActivity = Action.async {
+    implicit request => {
+      sessionService.find().map(sessions => Ok(views.html.admin.UserActivity(sessions)))
+    }
+  }
 }

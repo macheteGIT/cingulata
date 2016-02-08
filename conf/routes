@@ -23,6 +23,7 @@ GET         /item/all/:pageNum          controllers.ItemController.allForPage(pa
 #admin
 GET         /admin/categories           controllers.ItemController.categories
 GET         /admin/subcategories        controllers.ItemController.subcategories
+GET         /admin/activity             controllers.AdminController.userActivity
 
 #user
 GET         /user                       controllers.AuthController.loginForm
