@@ -3,31 +3,32 @@
 # ~~~~
 
 # Home page
-GET         /                           controllers.Application.index
+GET         /                               controllers.Application.index
 
 # Map static resources from the /public folder to the /assets URL path
-GET         /assets/*file               controllers.Assets.at(path="/public", file)
+GET         /assets/*file                   controllers.Assets.at(path="/public", file)
 
 #Auth
-#POST        /signup                  controllers.AuthController.signup
-#POST        /login                   controllers.AuthController.login
-#POST        /logout                  controllers.AuthController.logout
-#GET         /secure                  controllers.AuthController.securedSampleAction
+#POST        /signup                        controllers.AuthController.signup
+#POST        /login                         controllers.AuthController.login
+#POST        /logout                        controllers.AuthController.logout
+#GET         /secure                        controllers.AuthController.securedSampleAction
 
 #items
-GET         /item/details/:id           controllers.ItemController.details(id: String)
-GET         /item/filters               controllers.ItemController.filters
-GET         /item/all                   controllers.ItemController.all
-GET         /item/all/:pageNum          controllers.ItemController.allForPage(pageNum: Int)
+GET         /item/details/:id                   controllers.ItemController.details(id: String)
+GET         /item/filters                       controllers.ItemController.filters
+GET         /item/all                           controllers.ItemController.all
+GET         /item/all/:pageNum                  controllers.ItemController.allForPage(pageNum: Int)
 
 #admin
-GET         /admin/categories           controllers.ItemController.categories
-GET         /admin/subcategories        controllers.ItemController.subcategories
-GET         /admin/activity             controllers.AdminController.userActivity
+GET         /admin/categories                   controllers.ItemController.categories
+GET         /admin/subcategories                controllers.ItemController.subcategories
+GET         /admin/activity                     controllers.AdminController.userActivity
+GET         /category/modify/:oldName/:newName  controllers.ItemController.updateCategory(oldName: String, newName: String)
 
 #user
-GET         /user                       controllers.AuthController.loginForm
-GET         /user/registration          controllers.AuthController.registrationForm
-POST        /user/login                 controllers.AuthController.login
-POST        /user/register              controllers.AuthController.signup
-GET         /user/logout                controllers.AuthController.logout
+GET         /user                               controllers.AuthController.loginForm
+GET         /user/registration                  controllers.AuthController.registrationForm
+POST        /user/login                         controllers.AuthController.login
+POST        /user/register                      controllers.AuthController.signup
+GET         /user/logout                        controllers.AuthController.logout

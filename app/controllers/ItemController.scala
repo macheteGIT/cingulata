@@ -63,6 +63,12 @@ class ItemController @Inject()(itemService: ItemService, val messagesApi: Messag
     }
   }
 
+  def updateCategory(oldName: String, newName: String) = Action {
+    implicit request => {
+      Ok(itemService.setCategoryName(oldName, newName).toString)
+    }
+  }
+
   /**
    * Cached SubCategories page in admin
    */

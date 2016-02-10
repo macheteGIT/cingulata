@@ -33,6 +33,8 @@ import services.Mongo
   def allSubCategories: Future[Seq[String]]
 
   def allHosts: Future[List[String]] = ???
+
+  def setCategoryName(oldName: String, newName: String): Int
 }
 
 @Singleton class ItemDaoImpl @Inject()(mongo: Mongo) extends ItemDao {
@@ -66,6 +68,14 @@ import services.Mongo
     Future {
       items.distinct("subcategory").map(_.toString)
     }
+  }
+
+  override def setCategoryName(oldName: String, newName: String): Int = {
+    val bulk = items.initializeOrderedBulkOperation
+    bulk.find(MongoDBObject("category" -> oldName)).update(MongoDBObject(
+      "$set" -> MongoDBObject("category" -> newName)
+    ))
+    bulk.execute().getModifiedCount getOrElse -1
   }
 
   private def objAsItem(obj: BasicDBObject): Item = {
