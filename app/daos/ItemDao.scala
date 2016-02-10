@@ -34,7 +34,7 @@ import services.Mongo
 
   def allHosts: Future[List[String]] = ???
 
-  def setCategoryName(oldName: String, newName: String): Int
+  def setCategoryName(oldName: String, newName: String): Future[Int]
 }
 
 @Singleton class ItemDaoImpl @Inject()(mongo: Mongo) extends ItemDao {
@@ -70,12 +70,14 @@ import services.Mongo
     }
   }
 
-  override def setCategoryName(oldName: String, newName: String): Int = {
-    val bulk = items.initializeOrderedBulkOperation
-    bulk.find(MongoDBObject("category" -> oldName)).update(MongoDBObject(
-      "$set" -> MongoDBObject("category" -> newName)
-    ))
-    bulk.execute().getModifiedCount getOrElse -1
+  override def setCategoryName(oldName: String, newName: String): Future[Int] = {
+    Future {
+      val bulk = items.initializeOrderedBulkOperation
+      bulk.find(MongoDBObject("category" -> oldName)).update(MongoDBObject(
+        "$set" -> MongoDBObject("category" -> newName)
+      ))
+      bulk.execute().getModifiedCount getOrElse -1
+    }
   }
 
   private def objAsItem(obj: BasicDBObject): Item = {

@@ -22,5 +22,8 @@ class ItemService @Inject()(itemDao: ItemDao) {
 
   def allSubCategories: Future[Seq[String]] = itemDao.allSubCategories
 
-  def setCategoryName(oldName: String, newName: String): Int = itemDao.setCategoryName(oldName: String, newName: String)
+  def setCategoryName(oldName: String, newName: String): Future[Int] = {
+
+    itemDao.setCategoryName(oldName: String, newName: String)
+  }
 }

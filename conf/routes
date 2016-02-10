@@ -1,34 +1,30 @@
-# Routes
-# This file defines all application routes (Higher priority routes first)
-# ~~~~
+# Map static resources from the /public folder to the /assets URL path
+GET         /assets/*file                               @controllers.Assets.at(path="/public", file)
 
 # Home page
-GET         /                               controllers.Application.index
-
-# Map static resources from the /public folder to the /assets URL path
-GET         /assets/*file                   controllers.Assets.at(path="/public", file)
-
-#Auth
-#POST        /signup                        controllers.AuthController.signup
-#POST        /login                         controllers.AuthController.login
-#POST        /logout                        controllers.AuthController.logout
-#GET         /secure                        controllers.AuthController.securedSampleAction
+GET         /                                           @controllers.Application.index
 
 #items
-GET         /item/details/:id                   controllers.ItemController.details(id: String)
-GET         /item/filters                       controllers.ItemController.filters
-GET         /item/all                           controllers.ItemController.all
-GET         /item/all/:pageNum                  controllers.ItemController.allForPage(pageNum: Int)
+GET         /item/details/:id                           @controllers.ItemController.details(id: String)
+GET         /item/all                                   @controllers.ItemController.all
+GET         /item/all/:pageNum                          @controllers.ItemController.allForPage(pageNum: Int)
+
+#filters
+GET         /item/filters                               @controllers.ItemFilterController.filters
+
+#session
+GET         /user                                       @controllers.AuthController.loginForm
+GET         /user/register                              @controllers.AuthController.registrationForm
+POST        /user/login                                 @controllers.AuthController.login
+POST        /user/register                              @controllers.AuthController.signup
+GET         /user/logout                                @controllers.AuthController.logout
+
+#categoies
+GET         /categories                                 @controllers.ItemCategoryController.categories
+GET         /categories/modify/:oldName/:newName        @controllers.ItemCategoryController.updateCategory(oldName: String, newName: String)
+
+#subcategories
+GET         /subcategories                              @controllers.ItemSubCategoryController.subcategories
 
 #admin
-GET         /admin/categories                   controllers.ItemController.categories
-GET         /admin/subcategories                controllers.ItemController.subcategories
-GET         /admin/activity                     controllers.AdminController.userActivity
-GET         /category/modify/:oldName/:newName  controllers.ItemController.updateCategory(oldName: String, newName: String)
-
-#user
-GET         /user                               controllers.AuthController.loginForm
-GET         /user/registration                  controllers.AuthController.registrationForm
-POST        /user/login                         controllers.AuthController.login
-POST        /user/register                      controllers.AuthController.signup
-GET         /user/logout                        controllers.AuthController.logout
+GET         /general/activity                           @controllers.AdminController.userActivity
