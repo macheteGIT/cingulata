@@ -17,7 +17,7 @@ import scala.concurrent.Future
 /**
   * Created by kuzmentsov@gmail.com
   */
-@ImplementedBy(classOf[MongoUserDao])
+@ImplementedBy(classOf[UserDaoImpl])
 trait UserDao {
   def find(userId: String): Future[User]
 
@@ -29,7 +29,7 @@ trait UserDao {
 }
 
 @Singleton
-class MongoUserDao @Inject()(mongo: Mongo) extends UserDao {
+class UserDaoImpl @Inject()(mongo: Mongo) extends UserDao {
   private val users: MongoCollection = mongo.collection("user")
 
   override def find(userId: String): Future[User] = {

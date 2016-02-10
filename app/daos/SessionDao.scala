@@ -17,7 +17,7 @@ import models.{Session}
 /**
   * Created by kuzmentsov@gmail.com
   */
-@ImplementedBy(classOf[MongoSessionDao])
+@ImplementedBy(classOf[SessionDaoImpl])
 trait SessionDao {
   def find(sessionId: String): Future[Session]
 
@@ -33,7 +33,7 @@ trait SessionDao {
 }
 
 @Singleton
-class MongoSessionDao @Inject()(mongo: Mongo) extends SessionDao {
+class SessionDaoImpl @Inject()(mongo: Mongo) extends SessionDao {
   private val sessions: MongoCollection = mongo.collection("session")
 
   override def find(sessionId: String): Future[Session] = {
