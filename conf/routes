@@ -2,7 +2,7 @@
 GET         /assets/*file                               @controllers.Assets.at(path="/public", file)
 
 # Home page
-GET         /                                           @controllers.Application.index
+GET         /                                           @controllers.ItemController.all
 
 #items
 GET         /item/details/:id                           @controllers.ItemController.details(id: String)
@@ -27,4 +27,4 @@ GET         /categories/modify/:oldName/:newName        @controllers.ItemCategor
 GET         /subcategories                              @controllers.ItemSubCategoryController.subcategories
 
 #admin
-GET         /general/activity                           @controllers.AdminController.userActivity
+GET         /general/activity                           @controllers.GeneralController.userActivity

@@ -23,8 +23,7 @@ class SecureAction @Inject()(sessionService: SessionService,
   override protected def refine[A](request: Request[A]): Future[Either[Result, UserRequest[A]]] = {
 
     request.cookies.get("sessionId").map { c: Cookie =>
-      sessionService
-        .findUserBySessionId(c.value)
+      sessionService.findUserBySessionId(c.value)
         .map(u => Right(new UserRequest[A](u, request)))
         .recover {
           case NonFatal(_) => Left(Results.Forbidden)

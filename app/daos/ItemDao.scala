@@ -1,5 +1,6 @@
 package daos
 
+import bootstrap.MongoConfig
 import com.google.inject.{ImplementedBy, Inject, Singleton}
 import com.mongodb.BasicDBObject
 import com.mongodb.casbah.commons.MongoDBObject
@@ -12,7 +13,6 @@ import scala.concurrent.ExecutionContext.Implicits.global
 import scala.collection.JavaConversions._
 
 import models.Item
-import services.Mongo
 
 /**
   * Created by kuzmentsov@gmail.com
@@ -37,7 +37,7 @@ import services.Mongo
   def setCategoryName(oldName: String, newName: String): Future[Int]
 }
 
-@Singleton class ItemDaoImpl @Inject()(mongo: Mongo) extends ItemDao {
+@Singleton class ItemDaoImpl @Inject()(mongo: MongoConfig) extends ItemDao {
   val items: MongoCollection = mongo.collection("items")
 
   def find(itemId: String): Future[Item] = {

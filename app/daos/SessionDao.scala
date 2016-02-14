@@ -1,5 +1,7 @@
 package daos
 
+import bootstrap.MongoConfig
+
 import scala.concurrent.ExecutionContext.Implicits.global
 
 import com.google.inject.{ImplementedBy, Inject, Singleton}
@@ -9,8 +11,6 @@ import com.mongodb.casbah.{MongoCollection}
 import org.bson.types.ObjectId
 
 import scala.concurrent.Future
-
-import services.Mongo
 
 import models.{Session}
 
@@ -33,7 +33,7 @@ trait SessionDao {
 }
 
 @Singleton
-class SessionDaoImpl @Inject()(mongo: Mongo) extends SessionDao {
+class SessionDaoImpl @Inject()(mongo: MongoConfig) extends SessionDao {
   private val sessions: MongoCollection = mongo.collection("session")
 
   override def find(sessionId: String): Future[Session] = {

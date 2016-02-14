@@ -1,5 +1,6 @@
 package daos
 
+import bootstrap.MongoConfig
 import com.google.inject.{ImplementedBy, Inject, Singleton}
 import com.mongodb.{DBObject, BasicDBObject}
 import com.mongodb.casbah.{WriteConcern, MongoCollection}
@@ -10,7 +11,6 @@ import org.mongodb.scala.model.Filters._
 import org.mongodb.scala.result.UpdateResult
 import play.api.libs.concurrent.Execution.Implicits.defaultContext
 import play.api.libs.json.Json
-import services.Mongo
 
 import scala.concurrent.Future
 
@@ -29,7 +29,7 @@ trait UserDao {
 }
 
 @Singleton
-class UserDaoImpl @Inject()(mongo: Mongo) extends UserDao {
+class UserDaoImpl @Inject()(mongo: MongoConfig) extends UserDao {
   private val users: MongoCollection = mongo.collection("user")
 
   override def find(userId: String): Future[User] = {
