@@ -1,8 +1,6 @@
   package controllers
 
-import actions.SecureAction
 import com.google.inject.Inject
-import models.Item
 import play.api.libs.concurrent.Execution.Implicits.defaultContext
 import play.api.mvc._
 import services.{SessionService, ItemService}
@@ -10,7 +8,7 @@ import services.{SessionService, ItemService}
 /**
   * Created by kuzmentsov@gmail.com
   */
-class GeneralController @Inject()(itemService: ItemService, sessionService: SessionService, SecuredAction: SecureAction) extends Controller {
+class GeneralController @Inject()(itemService: ItemService, sessionService: SessionService) extends Controller {
 
   def userActivity = Action.async {
     implicit request => {

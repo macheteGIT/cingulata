@@ -1,5 +1,6 @@
 package models
 
+import play.api.libs.json.Json
 /**
  * Class used to manage data, that can gain another value, called mapping.
  * Maps one value to reference.
@@ -9,8 +10,5 @@ package models
 case class DataMapping(value: String, reference: String)
 
 object DataMapping {
-
-  import play.api.libs.json.Json
-
   implicit val dataMappingFormat = Json.format[DataMapping]
 }

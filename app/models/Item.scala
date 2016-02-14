@@ -4,7 +4,7 @@ package models
   * Created by kuzmentsov@gmail.com
   */
 case class Item(
-                 _id: String,
+                 id: String,
                  host: String,
                  url: String,
                  title: String,

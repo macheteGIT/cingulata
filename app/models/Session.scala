@@ -4,7 +4,7 @@ package models
   * Created by kuzmentsov@gmail.com
   */
 case class Session(
-                    _id: String,
+                    id: String,
                     userId: String,
                     ip: String,
                     userAgent: String,

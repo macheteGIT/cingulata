@@ -21,12 +21,10 @@ class ItemCategoryController @Inject()(
    * Returns merged categories template
    * @return merged categories page template.
    */
-  def categories = Cached("categories") {
-    Action.async {
+  def categories = Action.async {
       implicit request => {
         itemService.allCategories.map((categories: Seq[String]) => Ok(views.html.admin.categories(categories)))
       }
-    }
   }
 
   /**
