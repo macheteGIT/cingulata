@@ -25,3 +25,7 @@ libraryDependencies += "com.github.t3hnar" % "scala-bcrypt_2.11" % "2.5"
 
 //casbah
 libraryDependencies += "org.mongodb" %% "casbah" % "3.1.0"
+
+//Testing
+//scala mock
+libraryDependencies += "org.scalamock" %% "scalamock-scalatest-support" % "3.2.2" % "test"

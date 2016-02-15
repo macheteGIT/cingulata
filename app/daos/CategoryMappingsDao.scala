@@ -18,11 +18,15 @@ trait CategoryMappingsDao {
 @Singleton class CategoryMappingsDaoImpl @Inject()(mongo: MongoConfig) extends CategoryMappingsDao {
   val categoryMappings: MongoCollection = mongo.collection("category_mappings")
 
+  /**
+   * Stores a new datamapping in corresponding collection, to know which values(categories and subcategories) should be renamed.
+   * @param dataMapping
+   */
   override def set(dataMapping: DataMapping): Unit = {
       categoryMappings.findAndModify(
         MongoDBObject("value" -> dataMapping.value),
-        MongoDBObject("$set" -> MongoDBObject("reference" -> dataMapping.reference)),
-        MongoDBObject(), false, MongoDBObject("value" -> dataMapping.value, "reference" -> dataMapping.reference), false, true
+        MongoDBObject(),
+        MongoDBObject(), false, MongoDBObject("$set" -> MongoDBObject("reference" -> dataMapping.reference)), false, true
       )
   }
 }
