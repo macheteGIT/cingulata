@@ -11,6 +11,7 @@ GET         /item/all/:pageNum                          @controllers.ItemControl
 
 #filters
 GET         /item/filters                               @controllers.ItemFilterController.filters
+GET         /item/filters/by                            @controllers.ItemFilterController.itemsByFilterAsJson
 
 #session
 GET         /user                                       @controllers.AuthController.loginForm
