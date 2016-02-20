@@ -165,7 +165,6 @@ section {
     padding: 115px 0 0 0;
     max-width: inherit;
     line-height: 1.3em;
-    color: #9ba0a6;
     background: #E3EAFF;
     height: 1000px;
 }
@@ -218,7 +217,7 @@ section {
 
 #logo > span.name {
 	color: #4C4C4C;
-	font-size: 80px;
+	font-size: 60px;
 }
 
 #logo .desc {
