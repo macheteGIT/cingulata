@@ -2,7 +2,7 @@
 GET         /assets/*file                               @controllers.Assets.at(path="/public", file)
 
 # Home page
-GET         /                                           @controllers.ItemController.all
+GET 		/  											@controllers.Assets.at(path="/public", file="html/index.html")
 
 #items
 GET         /item/details/:id                           @controllers.ItemController.details(id: String)
@@ -12,6 +12,9 @@ GET         /item/all/:pageNum                          @controllers.ItemControl
 #filters
 GET         /item/filters                               @controllers.ItemFilterController.filters
 GET         /item/filters/by                            @controllers.ItemFilterController.itemsByFilterAsJson
+
+#similarity
+GET 		/item/similar/:id 							@controllers.ItemSimilarityController.getSimilarTo(id: String)
 
 #session
 GET         /user                                       @controllers.AuthController.loginForm
