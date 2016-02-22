@@ -5,7 +5,6 @@ html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abb
     padding: 0;
     border: 0;
     font: inherit;
-    font-size: 100%;
     vertical-align: baseline
 }
 
@@ -34,7 +33,6 @@ body {
     margin: 0;
     min-height: 100%;
     font-family: "Texta", "Helvetica Neue", helvetica, sans-serif;
-    font-size: 16px;
     text-align: center;
     color: #7a7d81;
     background-color: #fff;
@@ -74,14 +72,14 @@ hr {
     border: none
 }
 
-h1 {
-    display: none
+#logo {
+	    padding-top: 100px;
 }
 
-h4 {
-    color: #3a3a47;
-    font-size: 26px;
-    margin: 20px 0 10px 0
+h1 {
+    text-align: center;
+    font-family: Pacifico;
+    font-size: 50px;
 }
 
 p {
@@ -170,7 +168,6 @@ section {
 }
 
 #heading h2 {
-    font-size: 18px
 }
 
 #heading .meta {
@@ -204,26 +201,6 @@ section {
 
 #heading .meta a:hover {
     color: #3a3a47
-}
-
-#logo {
-    max-width: 460px;
-    margin: 120px auto 20px auto;
-    width: 100%;
-    padding: 0 40px;
-    text-align: center;
-    font-family: Pacifico;
-}
-
-#logo > span.name {
-	color: #4C4C4C;
-	font-size: 60px;
-}
-
-#logo .desc {
-	padding-top: 5px;
-    position: relative;
-    left: 64px;
 }
 
 #play {
