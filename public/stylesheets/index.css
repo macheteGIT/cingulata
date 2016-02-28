@@ -34,7 +34,7 @@ body {
     min-height: 100%;
     font-family: "Texta", "Helvetica Neue", helvetica, sans-serif;
     text-align: center;
-    color: #7a7d81;
+    color: #3F3C46;
     background-color: #fff;
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility
@@ -42,7 +42,7 @@ body {
 
 a {
     text-decoration: none;
-    color: #4dd5b0;
+    color: #3F3C46;
     -moz-transition-property: all;
     -o-transition-property: all;
     -webkit-transition-property: all;
@@ -54,7 +54,7 @@ a {
 }
 
 a:hover {
-    color: #29ad89
+    color: #0B2F25;
 }
 
 a:active {
@@ -72,14 +72,20 @@ hr {
     border: none
 }
 
-#logo {
+#title {
 	    padding-top: 100px;
+}
+
+.logo {
+      height: 55px;
 }
 
 h1 {
     text-align: center;
     font-family: Pacifico;
     font-size: 50px;
+    color: #A5EAD7;
+    text-shadow: 2px 2px #291642;
 }
 
 p {
@@ -98,7 +104,7 @@ section {
     padding: 12px 0;
     text-align: left;
     background-color: #fff;
-    background-color: rgba(165,234,215,0.5);
+    background-color: #A5EAD7;
     z-index: 9;
     -moz-transition-property: all;
     -o-transition-property: all;
@@ -121,8 +127,7 @@ section {
     margin-top: 6px;
     margin-right: 25px;
     font-size: 19px;
-    font-family: Playfair Display;
-    color: #3a3a47
+    color: #3F3C46;
 }
 
 #header a:after {
@@ -143,7 +148,7 @@ section {
 #header a:hover:after {
     margin-left: 0;
     margin-right: 0;
-    border-bottom-color: #7550c8
+    border-bottom-color: #3F3C46;
 }
 
 #header #badge {
@@ -163,7 +168,7 @@ section {
     padding: 115px 0 0 0;
     max-width: inherit;
     line-height: 1.3em;
-    background: #E3EAFF;
+    background: #3F3C46;
     height: 1000px;
 }
 
@@ -191,7 +196,7 @@ section {
 }
 
 #heading .meta span:first-of-type {
-    color: #3a3a47
+    color: #A5EAD7;
 }
 
 #heading .meta a {
@@ -224,8 +229,8 @@ section {
 footer {
     margin: 0 auto;
     padding: 0px 0 25px 0;
-    border-top: 1px solid #f2f2f2;
-    background: #616161;
+    border-top: 1px solid #A5EAD7;
+    background: #A5EAD7;
     -moz-background-size: cover;
     -o-background-size: cover;
     -webkit-background-size: cover;
