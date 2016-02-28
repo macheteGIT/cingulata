@@ -14,7 +14,7 @@ GET         /item/filters                               @controllers.ItemFilterC
 GET         /item/filters/by                            @controllers.ItemFilterController.itemsByFilterAsJson
 
 #similarity
-GET 		/item/similar/:id 							@controllers.ItemSimilarityController.getSimilarTo(id: String)
+GET 		/item/similar/:id 							                @controllers.ItemSimilarityController.getSimilarTo(id: String)
 
 #session
 GET         /user                                       @controllers.AuthController.loginForm
