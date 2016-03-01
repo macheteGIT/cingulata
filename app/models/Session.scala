@@ -1,5 +1,7 @@
 package models
 
+import play.api.libs.json.Json
+
 /**
   * Created by kuzmentsov@gmail.com
   */
@@ -13,8 +15,5 @@ case class Session(
                   )
 
 object Session {
-
-  import play.api.libs.json.Json
-
   implicit val userFormat = Json.format[Session]
 }

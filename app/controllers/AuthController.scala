@@ -60,7 +60,7 @@ class AuthController @Inject()(userService: UserService,
         val currentTimeMillis: Long = System.currentTimeMillis()
         val session: Session = models.Session(
           sessionId,
-          user._id,
+          user.id,
           request.remoteAddress,
           request.headers.get("User-Agent").get,
           currentTimeMillis,
