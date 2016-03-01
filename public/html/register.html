@@ -1,29 +1,15 @@
-<link rel="stylesheet"  media="screen"  href="@routes.Assets.at("stylesheets/registerForm.css")">
-
-@main {
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" media="screen" href="/assets/stylesheets/registerForm.css">
+</head>
+	<body>
     <form class="form-horizontal" action='@routes.AuthController.signup' method="POST">
         <fieldset>
             <div>
                 <legend>Registration</legend>
             </div>
-            <!--<div class="control-group">
-
-                <label class="control-label"  for="username">Name</label>
-                <div class="controls">
-                    <input type="text" id="name" name="name" placeholder="" class="input-xlarge">
-                    <p class="help-block">Username can contain any letters or numbers, without spaces</p>
-                </div>
-            </div>
-
-            <div class="control-group">
-                    <!-- Username
-                <label class="control-label"  for="username">Username</label>
-                <div class="controls">
-                    <input type="text" id="username" name="username" placeholder="" class="input-xlarge">
-                    <p class="help-block">Username can contain any letters or numbers, without spaces</p>
-                </div>
-            </div>-->
-
             <div class="control-group">
                     <!-- E-mail -->
                 <label class="control-label" for="email"></label>
@@ -45,9 +31,10 @@
             <div class="control-group">
                     <!-- Button -->
                 <div class="controls">
-                    <button class="btn btn-success">REgister</button>
+                    <button class="btn btn-success">Register</button>
                 </div>
             </div>
         </fieldset>
     </form>
-}
+  </body>
+</html>
