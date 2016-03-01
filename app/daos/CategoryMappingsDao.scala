@@ -16,7 +16,7 @@ trait CategoryMappingsDao {
 }
 
 @Singleton class CategoryMappingsDaoImpl @Inject()(mongo: MongoConfig) extends CategoryMappingsDao {
-  val categoryMappings: MongoCollection = mongo.collection("category_mappings")
+  val categoryMappings: MongoCollection = mongo.collection("categoryMappings")
 
   /**
    * Stores a new datamapping in corresponding collection, to know which values(categories and subcategories) should be renamed.

@@ -1,14 +1,10 @@
 @import url(https://fonts.googleapis.com/css?family=Playfair+Display:700);
 @import url(https://fonts.googleapis.com/css?family=Pacifico);
 html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,figure,figcaption,footer,header,hgroup,menu,nav,output,ruby,section,summary,time,mark,audio,video {
-    margin: 0;
-    padding: 0;
     border: 0;
     font: inherit;
     vertical-align: baseline
 }
-
-
 
 a img {
     border: none
@@ -40,27 +36,6 @@ body {
     text-rendering: optimizeLegibility
 }
 
-a {
-    text-decoration: none;
-    color: #3F3C46;
-    -moz-transition-property: all;
-    -o-transition-property: all;
-    -webkit-transition-property: all;
-    transition-property: all;
-    -moz-transition-duration: 0.2s;
-    -o-transition-duration: 0.2s;
-    -webkit-transition-duration: 0.2s;
-    transition-duration: 0.2s
-}
-
-a:hover {
-    color: #0B2F25;
-}
-
-a:active {
-    outline: none
-}
-
 img {
     border: none;
     display: block
@@ -74,6 +49,13 @@ hr {
 
 #title {
 	    padding-top: 100px;
+      cursor: default;
+      -webkit-touch-callout: none;
+      -webkit-user-select: none;
+      -khtml-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
 }
 
 .logo {
@@ -103,7 +85,6 @@ section {
     width: 100%;
     padding: 12px 0;
     text-align: left;
-    background-color: #fff;
     background-color: #A5EAD7;
     z-index: 9;
     -moz-transition-property: all;
@@ -120,35 +101,6 @@ section {
     -moz-box-shadow: 0 10px 90px rgba(0,0,0,0.1);
     -webkit-box-shadow: 0 10px 90px rgba(0,0,0,0.1);
     box-shadow: 0 10px 90px rgba(0,0,0,0.1)
-}
-
-#header a {
-    float: right;
-    margin-top: 6px;
-    margin-right: 25px;
-    font-size: 19px;
-    color: #3F3C46;
-}
-
-#header a:after {
-    content: "";
-    display: block;
-    margin: 8px 8px 0 8px;
-    border-bottom: 1px solid #4dd5b0;
-    -moz-transition-property: all;
-    -o-transition-property: all;
-    -webkit-transition-property: all;
-    transition-property: all;
-    -moz-transition-duration: 0.2s;
-    -o-transition-duration: 0.2s;
-    -webkit-transition-duration: 0.2s;
-    transition-duration: 0.2s
-}
-
-#header a:hover:after {
-    margin-left: 0;
-    margin-right: 0;
-    border-bottom-color: #3F3C46;
 }
 
 #header #badge {
@@ -170,9 +122,6 @@ section {
     line-height: 1.3em;
     background: #3F3C46;
     height: 1000px;
-}
-
-#heading h2 {
 }
 
 #heading .meta {
@@ -199,31 +148,23 @@ section {
     color: #A5EAD7;
 }
 
-#heading .meta a {
-    color: #9ba0a6;
-    border-bottom: 1px solid rgba(155,160,166,0.2)
+#heading > div.categories {
+    margin-top: 100px;
 }
 
-#heading .meta a:hover {
-    color: #3a3a47
+#motto {
+  color: #A5EAD7;
 }
 
-#play {
-    display: inline-block;
-    vertical-align: middle;
-    *vertical-align: auto;
-    *zoom:1;*display: inline;
-    margin: 60px auto
+#chartSection {
+  background: #3F3C46;
+  max-width: inherit;
 }
 
-#play:hover svg path {
-    fill: #7550c8
-}
-
-#play:active {
-    -moz-transform: scale3d(.95, .95, .95);
-    -webkit-transform: scale3d(.95, .95, .95);
-    transform: scale3d(.95, .95, .95)
+a.category {
+  background: #3F3C46;
+  text-decoration: none;
+  color: #A5EAD7;
 }
 
 footer {
@@ -235,6 +176,27 @@ footer {
     -o-background-size: cover;
     -webkit-background-size: cover;
     background-size: cover
+}
+
+a.footerLink {
+    text-decoration: none;
+    color: #3F3C46;
+    -moz-transition-property: all;
+    -o-transition-property: all;
+    -webkit-transition-property: all;
+    transition-property: all;
+    -moz-transition-duration: 0.2s;
+    -o-transition-duration: 0.2s;
+    -webkit-transition-duration: 0.2s;
+    transition-duration: 0.2s
+}
+
+a.footerLink:hover {
+    color: #0B2F25;
+}
+
+a.footerLink:active {
+    outline: none
 }
 
 footer img {
