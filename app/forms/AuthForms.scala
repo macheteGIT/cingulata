@@ -9,15 +9,13 @@ import play.api.i18n.Messages
   */
 object AuthForms {
 
-  case class SignupData(email: String, username: String, password: String, name: String)
+  case class SignupData(email: String, password: String)
 
   // Signup
   def signupForm(implicit messages: Messages) :Form[SignupData]  = Form(
     mapping(
       "email" -> email,
-      "username" -> nonEmptyText,
-      "password" -> nonEmptyText.verifying(Messages("error.password.minLength"), password => password.length >= 6),
-      "name" -> nonEmptyText
+      "password" -> nonEmptyText.verifying(Messages("error.password.minLength"), password => password.length >= 6)
     )
     (SignupData.apply)(SignupData.unapply))
 

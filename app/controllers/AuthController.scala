@@ -39,14 +39,12 @@ class AuthController @Inject()(userService: UserService,
 
     val user = User(
       UUID.randomUUID().toString,
-      signupData.name,
       signupData.email,
-      signupData.username,
       signupData.password.bcrypt,
       System.currentTimeMillis())
 
     userService.save(user)
-    
+
     Future(Ok)
 
 

@@ -5,11 +5,9 @@ package models
   */
 case class User(
                  _id: String,
-                 name: String,
                  email: String,
-                 username: String,
                  password: String,
-                 timestamp: Long
+                 registeredOn: Long
                )
 
 object User {
