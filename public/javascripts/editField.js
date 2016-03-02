@@ -1,5 +1,7 @@
 (function() {
-  window.cng = {};
+  if (!window.cng) {
+    window.cng = {};
+  }
   window.cng.editable = {
     init: function() {
       var a = document.getElementsByClassName('edit');
@@ -43,35 +45,30 @@
         li.innerHTML = input.value;
       }, true);
       li.appendChild(button);
-
-      button.addEventListener("click", function(e) {
+      button.addEventListener("click", function() {
         var newName = input.value;
-        var xhttp = new XMLHttpRequest();
-        xhttp.onreadystatechange = function() {
-
-          if  (xhttp.status == 200) {
-            console.log(xhttp.responseText);
+        var ajax = cng.ajax.declare("/categories/modify/" + oldName +  "/" + newName);
+        ajax.onreadystatechange = function() {
+          if(cng.ajax.response(ajax) == true) {
             b.setAttribute("style", "font-weight:normal")
           }
         }
-        xhttp.open("GET", "/categories/modify/" + oldName +  "/" + newName, true);
-        xhttp.send();
         var b = li;
         b.setAttribute("style", "font-weight:bold")
-      },true)
-    }
-
-    function addCancelButton() {
-      var button = document.createElement("button");
-      button.innerText = "Cancel";
-      button.onclick = function () {
-        li.innerHTML = "";
-        li.innerText = oldName;
-        return false;
+        ajax.send();} , false);
       }
-      li.appendChild(button);
-    }
-  }
 
-  window.addEventListener("load", cng.editable.init, false);
-})()
+      function addCancelButton() {
+        var button = document.createElement("button");
+        button.innerText = "Cancel";
+        button.onclick = function () {
+          li.innerHTML = "";
+          li.innerText = oldName;
+          return false;
+        }
+        li.appendChild(button);
+      }
+    }
+
+    window.addEventListener("load", cng.editable.init, false);
+  })()
