@@ -27,7 +27,7 @@ GET         /user/logout                                @controllers.AuthControl
 
 #categoies
 GET         /categories                                 @controllers.ItemCategoryController.categories
-GET         /categories/modify/:oldName/:newName        @controllers.ItemCategoryController.updateCategory(oldName: String, newName: String)
+PUT         /categories/modify/:oldName/:newName        @controllers.ItemCategoryController.updateCategory(oldName: String, newName: String)
 
 #subcategories
 GET         /subcategories                              @controllers.ItemSubCategoryController.subcategories

@@ -4,27 +4,29 @@
         window.cng = {};
     }
     window.cng.ajax = {
-        declare: function(url) {
-            var xhttp = new XMLHttpRequest();
-            xhttp.open("GET", url, true);
-            return xhttp;
-        },
-
-        response: function(xhttp) {
-            if (xhttp.status == 200) {
-                return true;
-            };
-        },
-
         get: function(url, callback) {
-          var xhttp = new XMLHttpRequest();
-          xhttp.open("GET", url, true);
-          xhttp.onreadystatechange = function(e) {
-            if (this.readyState === 4 && this.status === 200) {
-              callback(this);
-            }
-          }
-          xhttp.send();
+          request("GET", url, callback);
+        },
+        put: function(url, callback) {
+          request("PUT", url, callback)
+        },
+        post: function(url, callback) {
+          request("POST", url, callback)
+        },
+        delete: function(url, callback) {
+          request("DELETE", url, callback)
         }
+    }
+
+    function request(method, url, callback) {
+      var xhttp = new XMLHttpRequest();
+      xhttp.open("PUT", url, true);
+
+      xhttp.onreadystatechange = function(e) {
+        if (this.readyState === 4 && this.status === 200) {
+          callback(this);
+        }
+      }
+      xhttp.send();
     }
 }())

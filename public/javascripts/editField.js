@@ -47,7 +47,7 @@
         li.appendChild(button);
         button.addEventListener("click", function() {
             var newName = input.value;
-            cng.ajax.get("/categories/modify/" + oldName + "/" + newName, function() {
+            cng.ajax.put("/categories/modify/" + oldName + "/" + newName, function() {
                 b.setAttribute("style", "font-weight:normal")
             });
             var b = li;
