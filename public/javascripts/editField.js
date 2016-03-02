@@ -39,24 +39,21 @@
     input.focus();
 
     function addSaveButton() {
-      var button = document.createElement("button");
-      button.innerText = "Save";
-      button.addEventListener("click" , function() {
-        li.innerHTML = input.value;
-      }, true);
-      li.appendChild(button);
-      button.addEventListener("click", function() {
-        var newName = input.value;
-        var ajax = cng.ajax.declare("/categories/modify/" + oldName +  "/" + newName);
-        ajax.onreadystatechange = function() {
-          if(cng.ajax.response(ajax) == true) {
-            b.setAttribute("style", "font-weight:normal")
-          }
-        }
-        var b = li;
-        b.setAttribute("style", "font-weight:bold")
-        ajax.send();} , false);
-      }
+        var button = document.createElement("button");
+        button.innerText = "Save";
+        button.addEventListener("click", function() {
+            li.innerHTML = input.value;
+        }, true);
+        li.appendChild(button);
+        button.addEventListener("click", function() {
+            var newName = input.value;
+            cng.ajax.get("/categories/modify/" + oldName + "/" + newName, function() {
+                b.setAttribute("style", "font-weight:normal")
+            });
+            var b = li;
+            b.setAttribute("style", "font-weight:bold")
+        }, false);
+    }
 
       function addCancelButton() {
         var button = document.createElement("button");
