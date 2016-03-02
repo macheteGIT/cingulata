@@ -3,8 +3,12 @@ GET         /assets/*file                               @controllers.Assets.at(p
 
 # Home page, sign up, sign in
 GET 		/  											                        @controllers.Assets.at(path="/public", file="html/index/index.html")
+
 GET 		/signup  								                        @controllers.Assets.at(path="/public", file="html/signup/signup.html")
 POST    /signup                                         @controllers.AuthController.signup
+
+GET 		/signin  								                        @controllers.Assets.at(path="/public", file="html/signup/signin.html")
+POST    /signin                                         @controllers.AuthController.signin
 
 #items
 GET         /item/details/:id                           @controllers.ItemController.details(id: String)
@@ -16,13 +20,9 @@ GET         /item/filters                               @controllers.ItemFilterC
 GET         /item/filters/by                            @controllers.ItemFilterController.itemsByFilterAsJson
 
 #similarity
-GET 		/item/similar/:id 							                @controllers.ItemSimilarityController.getSimilarTo(id: String)
+GET 		    /item/similar/:id 							                @controllers.ItemSimilarityController.getSimilarTo(id: String)
 
 #session
-GET         /user                                       @controllers.AuthController.loginForm
-GET         /user/register                              @controllers.AuthController.registrationForm
-POST        /user/login                                 @controllers.AuthController.login
-POST        /user/register                              @controllers.AuthController.signup
 GET         /user/logout                                @controllers.AuthController.logout
 
 #categoies
