@@ -1,5 +1,7 @@
 package models
 
+import play.api.libs.json.Json
+
 /**
   * Created by kuzmentsov@gmail.com
   */
@@ -15,8 +17,5 @@ case class Item(
                )
 
 object Item {
-
-  import play.api.libs.json.Json
-
   implicit val itemFormat = Json.format[Item]
 }

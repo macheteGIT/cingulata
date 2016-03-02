@@ -39,14 +39,12 @@ class AuthController @Inject()(userService: UserService,
 
     val user = User(
       UUID.randomUUID().toString,
-      signupData.name,
       signupData.email,
-      signupData.username,
       signupData.password.bcrypt,
       System.currentTimeMillis())
 
     userService.save(user)
-    
+
     Future(Ok)
 
 
@@ -62,7 +60,7 @@ class AuthController @Inject()(userService: UserService,
         val currentTimeMillis: Long = System.currentTimeMillis()
         val session: Session = models.Session(
           sessionId,
-          user._id,
+          user.id,
           request.remoteAddress,
           request.headers.get("User-Agent").get,
           currentTimeMillis,

@@ -55,21 +55,17 @@ class UserDaoImpl @Inject()(mongo: MongoConfig) extends UserDao {
   private def objAsUser(obj: BasicDBObject): User = {
     User(
       obj.getObjectId("_id").toHexString,
-      obj.getString("name"),
       obj.getString("email"),
-      obj.getString("username"),
       obj.getString("password"),
-      obj.getLong("timestamp")
+      obj.getLong("registeredOn")
     )
   }
 
   private def userAsObj(obj: User): DBObject = {
     MongoDBObject(
-      "name" -> obj.name,
       "email" -> obj.email,
-      "username" -> obj.username,
       "password" -> obj.password,
-      "timestamp" -> System.currentTimeMillis / 1000
+      "registeredOn" -> obj.registeredOn
     )
   }
 }

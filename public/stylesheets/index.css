@@ -47,6 +47,11 @@ hr {
     border: none
 }
 
+#signup {
+  position: absolute;
+    right: 29px;
+}
+
 #title {
 	    padding-top: 100px;
       cursor: default;
@@ -188,7 +193,8 @@ a.footerLink {
     -moz-transition-duration: 0.2s;
     -o-transition-duration: 0.2s;
     -webkit-transition-duration: 0.2s;
-    transition-duration: 0.2s
+    transition-duration: 0.2s;
+    font-size: 12px;
 }
 
 a.footerLink:hover {

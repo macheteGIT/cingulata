@@ -7,8 +7,6 @@ html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abb
   vertical-align: baseline
 }
 
-
-
 a img {
   border: none
 }
@@ -59,8 +57,8 @@ input{
   border-radius:0;
 
 }
+
 button{
-  margin-left:150px;
   border:0;
   outline:none;
   border-radius:0;
@@ -73,4 +71,8 @@ button{
   background:#A5EAD7;
   text-align: center;
   text-shadow: 1px 1px 1px #3F3C46;
+}
+
+.controls {
+    text-align: center;
 }

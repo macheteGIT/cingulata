@@ -1,8 +1,10 @@
 # Map static resources from the /public folder to the /assets URL path
 GET         /assets/*file                               @controllers.Assets.at(path="/public", file)
 
-# Home page
-GET 		/  											@controllers.Assets.at(path="/public", file="html/index.html")
+# Home page, sign up, sign in
+GET 		/  											                        @controllers.Assets.at(path="/public", file="html/index/index.html")
+GET 		/signup  								                        @controllers.Assets.at(path="/public", file="html/signup/signup.html")
+POST    /signup                                         @controllers.AuthController.signup
 
 #items
 GET         /item/details/:id                           @controllers.ItemController.details(id: String)
