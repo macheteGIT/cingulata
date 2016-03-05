@@ -70,19 +70,19 @@
     * @var callback {Function}
     */
     window.cng.ajax = {
-        get: function(url, callback) {
+        get(url, callback) {
           request("GET", url, callback);
         },
-        put: function(url, callback) {
+        put(url, callback) {
           request("PUT", url, callback);
         },
-        post: function(url, callback) {
+        post(url, callback) {
           request("POST", url, callback);
         },
-        delete: function(url, callback) {
+        delete(url, callback) {
           request("DELETE", url, callback);
         },
-        submit: function(form, callback) {
+        submit(form, callback) {
           submit(form, callback);
         }
     }
