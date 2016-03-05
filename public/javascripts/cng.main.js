@@ -28,19 +28,13 @@
      * @var {Node}
      */
     function serialize(form) {
-        if (!form || form.nodeName !== "FORM") {
-            return;
-        }
-        var i, q = [];
-        for (i = form.elements.length - 1; i >= 0; i = i - 1) {
-            if (form.elements[i].name === "") {
-                continue;
-            }
+        var q = [];
+        for (var i = 0; i < form.elements.length; i++) {
             q.push(form.elements[i].name + "=" + encodeURIComponent(form.elements[i].value));
         }
         return q.join("&");
     }
-    
+
     /**
      * Takes a form node and sends it over AJAX.
      * @param {HTMLFormElement} form - Form node to send
