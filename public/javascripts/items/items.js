@@ -9,7 +9,7 @@
    * Loading items into grid.
    */
   cng.item.load = function() {
-    cng.ajax.get("http://localhost:9000/item/filters/by", function(xhr) {
+    cng.ajax.get("/item/filters/by", function(xhr) {
       createList(xhr.response)
     })
   }
@@ -72,7 +72,7 @@
 
     var subCategory = document.createElement("span");
     subCategory.className = "sub-category";
-    subCategory.innerText = item.subCategory;
+    subCategory.innerText = item.subcategory;
 
     var grid = document.createElement("div");
     grid.className = "grid";

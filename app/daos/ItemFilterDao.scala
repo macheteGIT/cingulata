@@ -21,7 +21,7 @@ import scala.concurrent.Future
 
   def findByFilter(): Future[String] = {
     Future {
-      items.find().toList.slice(1, 10).map(obj => com.mongodb.util.JSON.serialize(obj)).mkString("[", ",", "]")
+      items.find().toList.slice(1, 8).map(obj => com.mongodb.util.JSON.serialize(obj)).mkString("[", ",", "]")
     }
   }
 
