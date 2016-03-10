@@ -30,3 +30,6 @@ libraryDependencies += "org.mongodb" %% "casbah" % "3.1.0"
 //Testing
 //scala mock
 libraryDependencies += "org.scalamock" %% "scalamock-scalatest-support" % "3.2.2" % "test"
+
+//Mailer plugin
+libraryDependencies += "com.typesafe.play" %% "play-mailer" % "3.0.1"
