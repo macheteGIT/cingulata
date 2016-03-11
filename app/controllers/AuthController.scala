@@ -26,33 +26,18 @@ class AuthController @Inject()(userService: UserService,
                                secureAction: SecureAction,
                                val messagesApi: MessagesApi) extends Controller {
 
-  def loginForm = Action {
-    Ok(views.html.user.login())
-  }
-
-  def registrationForm = Action {
-    Ok(views.html.user.register())
-  }
   def signup = Action.async(BodyParser { implicit request => parse.form(AuthForms.signupForm, onErrors = { errorForm: Form[AuthForms.SignupData] => BadRequest(errorForm.errorsAsJson) })(request) }) { implicit request =>
-
     val signupData = request.body
-
     val user = User(
       UUID.randomUUID().toString,
       signupData.email,
       signupData.password.bcrypt,
       System.currentTimeMillis())
-
     userService.save(user)
-
     Future(Ok)
-
-
-
   }
 
-  def login = Action.async(BodyParser { implicit request => parse.form(AuthForms.loginForm, onErrors = { errorForm: Form[AuthForms.LoginData] => BadRequest(errorForm.errorsAsJson) })(request) }) { implicit request =>
-
+  def signin = Action.async(BodyParser { implicit request => parse.form(AuthForms.loginForm, onErrors = { errorForm: Form[AuthForms.LoginData] => BadRequest(errorForm.errorsAsJson) })(request) }) { implicit request =>
     val loginData = request.body
     userService.findByUsername(loginData.username).map((user: User) => {
       if (loginData.password.isBcrypted(user.password)) {
@@ -76,10 +61,6 @@ class AuthController @Inject()(userService: UserService,
         Forbidden
       }
     }
-  }
-
-  def securedSampleAction = secureAction { implicit request =>
-    Ok
   }
 
   def logout = secureAction { implicit request =>

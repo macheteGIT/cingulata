@@ -17,8 +17,8 @@
     }
 
     var li = this;
-    var input = document.createElement("input")
-    input.type = "text"
+    var input = document.createElement("input");
+    input.type = "text";
     input.value = this.innerText;
     var oldName = this.innerText;
     this.innerText= "";
@@ -28,14 +28,14 @@
     input.onfocus = function () {
       this.onmousedown = function() {
         if (event.parentNode) {
-          if (event.parentNode.tagName == "BUTTON") {
+          if (event.parentNode.tagName === "BUTTON") {
             return false;
           }
           this.parentNode.innerText = this.value;
           this.remove();
         }
-      }
-    }
+      };
+    };
     input.focus();
 
     function addSaveButton() {
@@ -47,8 +47,8 @@
         li.appendChild(button);
         button.addEventListener("click", function() {
             var newName = input.value;
-            cng.ajax.get("/categories/modify/" + oldName + "/" + newName, function() {
-                b.setAttribute("style", "font-weight:normal")
+            cng.ajax.put("/categories/modify/" + oldName + "/" + newName, function() {
+                b.setAttribute("style", "font-weight:normal");
             });
             var b = li;
             b.setAttribute("style", "font-weight:bold")
@@ -68,4 +68,4 @@
     }
 
     window.addEventListener("load", cng.editable.init, false);
-  })()
+  })();

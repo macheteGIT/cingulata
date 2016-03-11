@@ -1,4 +1,10 @@
 window.addEventListener("load", function() {
+  [].forEach.call(document.querySelectorAll("button"), function(button) {
+    button.addEventListener("click", function() {
+      window.open("/items/index");
+    }, false)
+  });
+
   var chartData = {
     labels: ["Phones", "Laptops", "Engines", "Accessories", "Travel", "Sport", "Other"],
     datasets: [

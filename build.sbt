@@ -2,14 +2,15 @@ lazy val projectName = "cingulata"
 
 name := projectName
 
+
+scalaVersion := "2.11.7"
+
 //heroku config
 herokuAppName in Compile := projectName
 
 version := "1.0"
 
 lazy val `cingulata` = (project in file(".")).enablePlugins(PlayScala)
-
-scalaVersion := "2.11.7"
 
 routesGenerator := InjectedRoutesGenerator
 
@@ -29,3 +30,6 @@ libraryDependencies += "org.mongodb" %% "casbah" % "3.1.0"
 //Testing
 //scala mock
 libraryDependencies += "org.scalamock" %% "scalamock-scalatest-support" % "3.2.2" % "test"
+
+//Mailer plugin
+libraryDependencies += "com.typesafe.play" %% "play-mailer" % "3.0.1"
