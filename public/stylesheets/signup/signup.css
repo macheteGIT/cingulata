@@ -45,7 +45,7 @@ legend {
   font-family: Pacifico;
 }
 input{
-  margin: 20px 60px;
+  margin: 20px auto;;
   font-size:22px;
   display:block;
   width:80%;
