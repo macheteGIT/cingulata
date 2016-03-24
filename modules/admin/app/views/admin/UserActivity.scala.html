@@ -1,0 +1,24 @@
+@(activityData: Seq[models.Session])
+@main {
+    <table>
+        @for(activityEntry <- activityData) {
+        <tr>
+            <td>
+                @activityEntry.userId
+            </td>
+            <td>
+                @activityEntry.ip
+            </td>
+            <td>
+                @activityEntry.userAgent
+            </td>
+            <td>
+                @activityEntry.timestamp
+            </td>
+            <td>
+                @activityEntry.lastActivity
+            </td>
+        </tr>
+        }
+    </table>
+}

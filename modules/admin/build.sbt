@@ -1,17 +1,6 @@
-lazy val projectName = "cingulata"
+lazy val projectName = "admin"
 
 name := projectName
-
-lazy val commonSettings = Seq(
-  organization := "org.cingulata",
-  version := "0.1.0",
-  scalaVersion := "2.11.7",
-  routesGenerator := InjectedRoutesGenerator
-)
-
-lazy val cingulata = (project in file(".")).aggregate(admin).dependsOn(admin).settings(commonSettings: _*).enablePlugins(PlayScala)
-
-lazy val admin = (project in file("modules/admin")).settings(commonSettings: _*).enablePlugins(PlayScala)
 
 resolvers += "scalaz-bintray" at "https://dl.bintray.com/scalaz/releases"
 
@@ -30,9 +19,3 @@ libraryDependencies += "org.scalamock" %% "scalamock-scalatest-support" % "3.2.2
 
 //Mailer plugin
 libraryDependencies += "com.typesafe.play" %% "play-mailer" % "3.0.1"
-
-
-//heroku config
-herokuAppName in Compile := projectName
-
-unmanagedResourceDirectories in Test <+= baseDirectory(_ / "target/web/public/test")
