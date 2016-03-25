@@ -1,6 +1,6 @@
 lazy val projectName = "cingulata"
 
-name := projectName
+name in Universal := name
 
 lazy val commonSettings = Seq(
   organization := "org.cingulata",
