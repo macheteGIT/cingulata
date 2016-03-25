@@ -10,3 +10,5 @@ http://www.cingulata.org
 Installing on local machine
 
 Java 8, Scala 2.11, sbt 0.13 - required
+
+cd into root directory and type <b>sbt run</b>
