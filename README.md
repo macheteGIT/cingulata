@@ -1,4 +1,5 @@
 <h1>Cingulata - UI</h1> 
+<p>Sinker's Web Interface.</p>
 <b>Travis-CI :</b> </br>
 [![Build Status](https://travis-ci.org/BattleBeaver/cingulata.svg?branch=master)](https://travis-ci.org/BattleBeaver/cingulata)
 
