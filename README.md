@@ -13,3 +13,23 @@ Installing on local machine
 Java 8, Scala 2.11, sbt 0.13 - required
 
 cd into root directory and type <b>sbt run</b>
+
+
+<h1>Apache2 Configuration Sample</h1>
+
+LoadModule proxy_module modules/mod_proxy.so
+
+<VirtualHost *:80>
+  ProxyPreserveHost On
+  ServerName admin.cingulata.org
+  ProxyPass  /excluded !
+  ProxyPass / http://127.0.0.1:9000/admin/categories
+  ProxyPassReverse / http://127.0.0.1:9000/categories
+</VirtualHost>
+<VirtualHost *:80>
+  ProxyPreserveHost On
+  ServerName demo.cingulata.org
+  ProxyPass  /excluded !
+  ProxyPass / http://127.0.0.1:9000/
+  ProxyPassReverse / http://127.0.0.1:9000/
+</VirtualHost>
