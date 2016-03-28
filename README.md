@@ -1,23 +1,40 @@
-<h1>Cingulata</h1> 
-Travis-CI [![Build Status](https://travis-ci.org/BattleBeaver/cingulata.svg?branch=master)](https://travis-ci.org/BattleBeaver/cingulata)
+<h1>Cingulata - UI</h1> 
+<b>Travis-CI :</b> </br>
+[![Build Status](https://travis-ci.org/BattleBeaver/cingulata.svg?branch=master)](https://travis-ci.org/BattleBeaver/cingulata)
 
-Codacy [![Codacy Badge](https://api.codacy.com/project/badge/grade/0a58a39185b94db49c0c9bdb8017c977)](https://www.codacy.com/app/kuzmentsov/cingulata)
+<b>Codacy :</b> </br>
+[![Codacy Badge](https://api.codacy.com/project/badge/grade/0a58a39185b94db49c0c9bdb8017c977)](https://www.codacy.com/app/kuzmentsov/cingulata)
 
-Test Servers
+<h1>Test Servers</h1>
 
-https://demo.cingulata.org
-http://www.cingulata.org
+Main:
+<pre>
+    http://demo.cingulata.org
+    http://www.cingulata.org
+</pre>
+Admin pane:
 
-Installing on local machine
+<pre>
+    http://admin.cingulata.org
+</pre>
+
+<h1>Installing on local machine</h1>
 
 Java 8, Scala 2.11, sbt 0.13 - required
 
-cd into root directory and type <b>sbt run</b>
+cd into root directory and type :
+<pre>sbt run</pre> in console.
 
 
 <h1>Apache2 Configuration Sample</h1>
 
-LoadModule proxy_module modules/mod_proxy.so
+Install <b>proxy_http</b> with command:
+<pre>a2enmod proxy_http</pre>
+
+Add this line to etc/apache2/apache2.conf
+<pre>LoadModule proxy_module modules/mod_proxy.so</pre>
+
+Insert nodes definitions:
 <pre>
 &lt;VirtualHost *:80/&gt;
   ProxyPreserveHost On
