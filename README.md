@@ -19,17 +19,17 @@ cd into root directory and type <b>sbt run</b>
 
 LoadModule proxy_module modules/mod_proxy.so
 
-<VirtualHost *:80>
+&lt;VirtualHost *:80&gt;
   ProxyPreserveHost On
   ServerName admin.cingulata.org
   ProxyPass  /excluded !
   ProxyPass / http://127.0.0.1:9000/admin/categories
   ProxyPassReverse / http://127.0.0.1:9000/categories
-</VirtualHost>
-<VirtualHost *:80>
+&lt;/VirtualHost&gt;
+&lt;VirtualHost *:80&gt;
   ProxyPreserveHost On
   ServerName demo.cingulata.org
   ProxyPass  /excluded !
   ProxyPass / http://127.0.0.1:9000/
   ProxyPassReverse / http://127.0.0.1:9000/
-</VirtualHost>
+&lt;/VirtualHost&gt;
