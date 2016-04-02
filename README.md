@@ -9,15 +9,15 @@
 <h1>Test Servers</h1>
 
 Main:
-<pre>
-    http://demo.cingulata.org
-    http://www.cingulata.org
-</pre>
+<p>
+    <a>http://demo.cingulata.org</a>
+    <a>http://www.cingulata.org</a>
+</p>
 Admin pane:
 
-<pre>
-    http://admin.cingulata.org
-</pre>
+<p>
+    <a>http://admin.cingulata.org</a>
+</p>
 
 <h1>Installing on local machine</h1>
 
