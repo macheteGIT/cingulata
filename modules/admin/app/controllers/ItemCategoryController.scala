@@ -1,4 +1,4 @@
-package controllers
+package controllers.admin
 
 import com.google.inject.Inject
 import models.DataMapping
@@ -23,7 +23,10 @@ class ItemCategoryController @Inject()(
    */
   def categories = Action.async {
       implicit request => {
-        itemService.allCategories.map((categories: Seq[String]) => Ok(views.html.admin.categories(categories)))
+        //itemService.allCategories.map((categories: Seq[String]) => Ok(views.html.admin.categories(categories)))
+        scala.concurrent.Future {
+          Ok(views.html.admin.categories(Nil))
+        }
       }
   }
 

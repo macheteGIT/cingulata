@@ -2,6 +2,7 @@
 GET         /assets/*file                               @controllers.Assets.at(path="/public", file)
 
 # Home page, sign up, sign in
+
 GET 		/  											                        @controllers.Assets.at(path="/public", file="html/index/index.html")
 
 GET 		/signup  								                        @controllers.Assets.at(path="/public", file="html/signup/signup.html")
