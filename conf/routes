@@ -22,17 +22,9 @@ GET         /item/filters                               @controllers.ItemFilterC
 GET         /item/filters/by                            @controllers.ItemFilterController.itemsByFilterAsJson
 
 #similarity
-GET 		    /item/similar/:id 							                @controllers.ItemSimilarityController.getSimilarTo(id: String)
+GET 		    /item/similar/:id 							            @controllers.ItemSimilarityController.getSimilarTo(id: String)
 
 #session
 GET         /user/logout                                @controllers.AuthController.logout
 
-#categoies
-GET         /categories                                 @controllers.ItemCategoryController.categories
-PUT         /categories/modify/:oldName/:newName        @controllers.ItemCategoryController.updateCategory(oldName: String, newName: String)
-
-#subcategories
-GET         /subcategories                              @controllers.ItemSubCategoryController.subcategories
-
-#admin
-GET         /general/activity                           @controllers.GeneralController.userActivity
+->          /admin                                      admin.Routes
