@@ -16,7 +16,6 @@ GET 		/items/index  								                  @controllers.Assets.at(path="/publ
 
 #items
 GET         /item/details/:id                           @controllers.ItemController.details(id: String)
-GET         /item/all                                   @controllers.ItemController.all
 GET         /item/all/:pageNum                          @controllers.ItemController.allForPage(pageNum: Int)
 
 #filters

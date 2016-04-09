@@ -22,8 +22,6 @@ import models.Item
 
   def find(itemId: String): Future[Item]
 
-  @deprecated def all: Future[Seq[Item]]
-
   def allForPage(pageNum: Int): Future[Seq[Item]]
 
   def findByHost(host: String): Future[Item] = ???
@@ -43,12 +41,6 @@ import models.Item
   def find(itemId: String): Future[Item] = {
     Future {
       objAsItem(items.findOne(MongoDBObject("_id" -> new ObjectId(itemId))).get.asInstanceOf[BasicDBObject])
-    }
-  }
-
-  @deprecated def all: Future[Seq[Item]] = {
-    Future {
-      items.find().map(x => objAsItem(x.asInstanceOf[BasicDBObject])).toList
     }
   }
 
