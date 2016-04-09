@@ -1,5 +1,5 @@
 @(activityData: Seq[models.Session])
-@admin_nav {
+@admin_nav() {
     <table>
         @for(activityEntry <- activityData) {
         <tr>

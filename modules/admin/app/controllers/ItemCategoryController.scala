@@ -23,10 +23,7 @@ class ItemCategoryController @Inject()(
    */
   def categories = Action.async {
       implicit request => {
-        //itemService.allCategories.map((categories: Seq[String]) => Ok(views.html.admin.categories(categories)))
-        scala.concurrent.Future {
-          Ok(views.html.admin.categories(Nil))
-        }
+        itemService.allCategories.map((categories: Seq[String]) => Ok(views.html.admin.categories(categories)))
       }
   }
 

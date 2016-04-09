@@ -1,4 +1,4 @@
-@(content: Html = Html(""))
+@(scripts: Html = Html(""), styles: Html = Html(""))(content: Html = Html(""))
 <!doctype html>
 <html lang="en" class="no-js">
 <head>
@@ -9,8 +9,10 @@
 
 	<link rel="stylesheet"  media="screen"  href="@controllers.admin.routes.Assets.at("stylesheets/reset.css")">
 	<link rel="stylesheet"  media="screen"  href="@controllers.admin.routes.Assets.at("stylesheets/style.css")">
+	@styles
 
-	<title>Responsive Sidebar Navigation | CodyHouse</title>
+	@scripts
+	<title>Responsive Sidebar Navigation | Cingulata</title>
 </head>
 <body>
 	<header class="cd-main-header">
@@ -49,7 +51,7 @@
 			<ul>
 				<li class="cd-label">Main</li>
 				<li class="has-children overview">
-					<a href="#0">Overview</a>
+					<a href="#0">Categories</a>
 
 					<ul>
 						<li><a href="#0">All Data</a></li>
@@ -57,7 +59,7 @@
 						<li><a href="#0">Category 2</a></li>
 					</ul>
 				</li>
-				<li class="has-children notifications active">
+				<li class="has-children notifications">
 					<a href="#0">Notifications<span class="count">3</span></a>
 
 					<ul>
@@ -117,6 +119,7 @@
 
 		<div class="content-wrapper">
 			<h1>Responsive Sidebar Navigation</h1>
+			@content
 		</div> <!-- .content-wrapper -->
 	</main> <!-- .cd-main-content -->
 </body>
