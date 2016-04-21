@@ -2,6 +2,7 @@
 GET         /assets/*file                               @controllers.Assets.at(path="/public", file)
 
 # Home page, sign up, sign in
+
 GET 		/  											                        @controllers.Assets.at(path="/public", file="html/index/index.html")
 
 GET 		/signup  								                        @controllers.Assets.at(path="/public", file="html/signup/signup.html")
@@ -10,11 +11,11 @@ POST    /signup                                         @controllers.AuthControl
 GET 		/signin  								                        @controllers.Assets.at(path="/public", file="html/signup/signin.html")
 POST    /signin                                         @controllers.AuthController.signin
 
+GET 		/items/  								                        @controllers.Assets.at(path="/public", file="html/items/items_collection.html")
 GET 		/items/index  								                  @controllers.Assets.at(path="/public", file="html/items/items.html")
 
 #items
 GET         /item/details/:id                           @controllers.ItemController.details(id: String)
-GET         /item/all                                   @controllers.ItemController.all
 GET         /item/all/:pageNum                          @controllers.ItemController.allForPage(pageNum: Int)
 
 #filters

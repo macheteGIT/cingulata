@@ -1,4 +1,4 @@
-package controllers
+package controllers.admin
 
 import com.google.inject.Inject
 import models.DataMapping

@@ -12,8 +12,6 @@ import scala.concurrent.Future
 class ItemService @Inject()(itemDao: ItemDao) {
   def find(itemId: String): Future[Item] = itemDao.find(itemId)
 
-  def all: Future[Seq[Item]] = itemDao.all
-
   def allForPage(pageNum: Int): Future[Seq[Item]] = itemDao.allForPage(pageNum)
 
   def findByHost(host: String): Future[Item] = itemDao.findByHost(host)

@@ -15,16 +15,6 @@ import models.Item
 class ItemController @Inject()(itemService: ItemService, val messagesApi: MessagesApi) extends Controller {
 
   /**
-   * Returns merged template of all items page.
-   * @return merged template of all items page.
-   */
-  def all = Action.async {
-    implicit request => {
-      itemService.all.map((items: Seq[Item]) => Ok(views.html.item.list(items)))
-    }
-  }
-
-  /**
    *
    * @param pageNum: Int - number of page.
    * @return merged template of list items page.
