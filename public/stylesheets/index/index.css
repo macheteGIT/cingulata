@@ -42,7 +42,6 @@ body {
 
 img {
     border: none;
-    display: block
 }
 
 .logo {
@@ -293,11 +292,8 @@ ul {
 }
 
 footer {
-  padding: 30px;
-    /*padding: 0px 0 25px 0;*/
-    border-top: 1px solid #A5EAD7;
-    background: #A5EAD7;
-
+  border-top: 1px solid #A5EAD7;
+  background: #A5EAD7;
 }
 .container span {
   margin: 0;
@@ -329,8 +325,6 @@ footer img {
     fill: #3a3a47
 }
 
-
-
 footer .copyright span.past a {
     position: relative;
     color: #3a3a47
@@ -343,9 +337,54 @@ footer span .copyright .past a:hover {
 footer .copyright span.small {
     font-size: 14px
 }
-.copyright{
-  float: none;
+
+.footer_panel {
+  padding-top: 10px;
+  padding-bottom: 20px;
 }
+
+.footer_data_holder {
+  margin: 0 auto;
+  max-width: 1140px;
+  width: 100%;
+  clear: both;
+  padding: 0 10px;
+  overflow: hidden;
+}
+
+.footer_cols_holder {
+  margin: 0 -10px 10px;
+  padding: 0 5px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+}
+
+.footer_cols_holder > ul {
+width: 20%;
+    list-style: none;
+    margin-bottom: 10px;
+}
+
+.footer_cols_holder > ul > li {
+  line-height: 2em;
+  font-size: 0.8em;
+}
+
+#copyright{
+  padding-bottom: 18px;
+  font-size: 0.7em;
+}
+
+#copyright > img {
+  vertical-align: middle;
+  height: 20px;
+}
+
 @media screen and (max-width:790px) {
 
   .category-wrapper .item-inner{
