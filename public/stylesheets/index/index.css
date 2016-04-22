@@ -203,10 +203,14 @@ li:focus{
   border: 2px solid #A5EAD7;
 }
 
-.item-inner span{
+.item-inner div {
+  height: 30%;
+  color: #3F3C46;
+  background-color: rgba(165, 234, 215, 0.77);
+  vertical-align: bottom;
+  margin-bottom: 0px;
   position: relative;
-  top: 130px;
-  padding-bottom:20px;
+  top: 123px;
 }
 .item-inner[data-type="image1"] {
   background: url(/assets/images/innovation.jpg);
@@ -240,9 +244,9 @@ li:focus{
 .link{
   color: white;
 }
- .item-inner:hover {
+ /*.item-inner:hover {
   opacity: 1;
-}
+}*/
 
 ul {
   float: left;
