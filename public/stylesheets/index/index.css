@@ -124,17 +124,15 @@ section{
   max-width: inherit;
   height: 809px;
 }
-.desc h1 {
+
+.desc-content {
   position: absolute;
-  font-size: 50px;
-  color: white;
-  padding: 100px 60px;
-  line-height: 0px;
+  top: 100px;
+  left: 10px;
+  text-align: initial;
 }
-.desc h2 {
-  position: absolute;
-  padding: 400px;
-  line-height: 200px;
+.desc-content > h1{
+  font-size: 25px;
 }
 
 .content {
