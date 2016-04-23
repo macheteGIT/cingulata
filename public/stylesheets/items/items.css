@@ -300,6 +300,8 @@ div.wish-list .products-grid .item-inner:hover {
     text-align: left;
     padding: 10px 0 4px 0;
     border-top: 1px solid #f0f0f0;
+    max-height: 150px;
+    overflow: auto;
 }
 .attributes .info-popup .attr-content p {
     text-align: left;
