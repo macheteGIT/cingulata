@@ -46,6 +46,7 @@ img {
 
 .logo {
   height: 55px;
+  vertical-align: middle;
 }
 
 .auth {
@@ -66,7 +67,13 @@ img {
   float: right;
   color: #3F3C46;
 }
-
+.badge-contacts {
+  display: inline-block;
+  vertical-align: middle;
+  font-weight: bold;
+  margin-left: 10px;
+  margin-bottom: 3px;
+}
 section{
   margin-top: 0px;
   padding-top: 0px;
@@ -101,6 +108,7 @@ section{
   margin: 0px 0 0 25px;
   width: 50px;
   height: 46px;
+  width: 240px;
 }
 
 .header #badge svg {
