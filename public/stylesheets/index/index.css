@@ -117,7 +117,7 @@ section{
 }
 
 .desc {
-  background: url(/assets/images/cngmain.jpg) fixed;
+  background: url(/assets/images/cngmain1.jpg) fixed;
   background-size: 100% auto;
   background-color: transparent;
   position: relative;
@@ -169,9 +169,8 @@ hr {
 
 .side-category {
   float: left;
-  padding-top: 15px;
-  margin: 20px;
-
+  width: 20%;
+  /*margin-left: 20px;*/
 }
 li:focus{
   border: none;
@@ -192,9 +191,16 @@ li:focus{
   cursor: pointer;
 }
 
-.category-wrapper{
+.nav-section-wrapper {
+  width: 100%;
+  height: 100%;
   margin-top: 52px;
+}
+
+.category-wrapper{
   margin-left: auto;
+  width: 80%;
+  float: right;
 }
 
 .category-wrapper .item-inner{
@@ -202,11 +208,11 @@ li:focus{
   display: inline-block;
   position: relative;
   margin-top: 0px;
-  margin: 7px 7px;
+  margin: 7px;
   background: url(/assets/images/laptop.jpg);
   opacity: 0.6;
   -webkit-background-size:cover;
-  width: 205px;
+  width: 281px;
   height: 180px;
   border: 2px solid #A5EAD7;
 }
@@ -260,6 +266,7 @@ ul {
   float: left;
   font-size: 1.1em;
   padding: 0px;
+  margin: 0px;
 }
 .content .meta {
     margin: 0;
