@@ -47,7 +47,7 @@
 
     var productImageImg = document.createElement("img");
     productImageImg.className = "img";
-    productImageImg.src = "http://img.allo.ua/media/catalog/product/cache/1/small_image/192x131/602f0fa2c1f0d1ba5e241f914e856ff9/a/s/asus_a6410-bc011m_90pt00r1-m09000_.jpg";
+    productImageImg.src = "/assets/images/test-phone.jpg";
     productImageImg.alt = item.title;
 
     var productContainerAll = document.createElement("div");
