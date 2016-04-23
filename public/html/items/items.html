@@ -5,10 +5,11 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
 	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700' rel='stylesheet' type='text/css'>
-  <link rel="stylesheet" href="/assets/stylesheets/items/reset.css"> <!-- CSS reset -->
-	<link rel="stylesheet" href="/assets/stylesheets/items/style.css"> <!-- Resource style -->
+  <link rel="stylesheet" href="/assets/stylesheets/items/reset.css">
+	<link rel="stylesheet" href="/assets/stylesheets/items/style.css">
+	<link rel="stylesheet" href="/assets/stylesheets/items/items.css">
 
-  <script src="/assets/javascripts/items/modernizr.js"></script> <!-- Modernizr -->
+  <script src="/assets/javascripts/items/modernizr.js"></script>
 
 	<title>Content Filters | Cingulata</title>
 </head>
@@ -18,35 +19,20 @@
 			<div class="cd-tab-filter">
 				<ul class="cd-filters">
 					<li class="placeholder">
-						<a data-type="all" href="#0">All</a> <!-- selected option on mobile -->
+						<a data-type="all" href="#0">All</a>
 					</li>
 					<li class="filter"><a class="selected" href="#0" data-type="all">All</a></li>
 					<li class="filter" data-filter=".color-1"><a href="#0" data-type="color-1">Color 1</a></li>
 					<li class="filter" data-filter=".color-2"><a href="#0" data-type="color-2">Color 2</a></li>
-				</ul> <!-- cd-filters -->
-			</div> <!-- cd-tab-filter -->
-		</div> <!-- cd-tab-filter-wrapper -->
+				</ul>
+			</div>
+		</div>
 
 		<section class="cd-gallery">
-			<ul>
-				<li class="mix color-1 check1 radio2 option3"><img src="img/img-1.jpg" alt="Image 1"></li>
-				<li class="mix color-2 check2 radio2 option2"><img src="img/img-2.jpg" alt="Image 2"></li>
-				<li class="mix color-1 check3 radio3 option1"><img src="img/img-3.jpg" alt="Image 3"></li>
-				<li class="mix color-1 check3 radio2 option4"><img src="img/img-4.jpg" alt="Image 4"></li>
-				<li class="mix color-1 check1 radio3 option2"><img src="img/img-5.jpg" alt="Image 5"></li>
-				<li class="mix color-2 check2 radio3 option3"><img src="img/img-6.jpg" alt="Image 6"></li>
-				<li class="mix color-2 check2 radio2 option1"><img src="img/img-7.jpg" alt="Image 7"></li>
-				<li class="mix color-1 check1 radio3 option4"><img src="img/img-8.jpg" alt="Image 8"></li>
-				<li class="mix color-2 check1 radio2 option3"><img src="img/img-9.jpg" alt="Image 9"></li>
-				<li class="mix color-1 check3 radio2 option4"><img src="img/img-10.jpg" alt="Image 10"></li>
-				<li class="mix color-1 check3 radio3 option2"><img src="img/img-11.jpg" alt="Image 11"></li>
-				<li class="mix color-2 check1 radio3 option1"><img src="img/img-12.jpg" alt="Image 12"></li>
-				<li class="gap"></li>
-				<li class="gap"></li>
-				<li class="gap"></li>
+			<ul class="products-grid">
 			</ul>
 			<div class="cd-fail-message">No results found</div>
-		</section> <!-- cd-gallery -->
+		</section>
 
 		<div class="cd-filter">
 			<form>
@@ -54,9 +40,9 @@
 					<h4>Search</h4>
 
 					<div class="cd-filter-content">
-						<input type="search" placeholder="Try color-1...">
-					</div> <!-- cd-filter-content -->
-				</div> <!-- cd-filter-block -->
+						<input type="search" placeholder="Global Search">
+					</div>
+				</div>
 
 				<div class="cd-filter-block">
 					<h4>Check boxes</h4>
@@ -76,8 +62,8 @@
 							<input class="filter" data-filter=".check3" type="checkbox" id="checkbox3">
 							<label class="checkbox-label" for="checkbox3">Option 3</label>
 						</li>
-					</ul> <!-- cd-filter-content -->
-				</div> <!-- cd-filter-block -->
+					</ul>
+				</div>
 
 				<div class="cd-filter-block">
 					<h4>Select</h4>
@@ -91,9 +77,9 @@
 								<option value=".option3">Option 3</option>
 								<option value=".option4">Option 4</option>
 							</select>
-						</div> <!-- cd-select -->
-					</div> <!-- cd-filter-content -->
-				</div> <!-- cd-filter-block -->
+						</div>
+					</div>
+				</div>
 
 				<div class="cd-filter-block">
 					<h4>Radio buttons</h4>
@@ -113,17 +99,19 @@
 							<input class="filter" data-filter=".radio3" type="radio" name="radioButton" id="radio3">
 							<label class="radio-label" for="radio3">Choice 3</label>
 						</li>
-					</ul> <!-- cd-filter-content -->
-				</div> <!-- cd-filter-block -->
+					</ul>
+				</div>
 			</form>
 
 			<a href="#0" class="cd-close">Close</a>
-		</div> <!-- cd-filter -->
+		</div>
 
 		<a href="#0" class="cd-filter-trigger">Filters</a>
-	</main> <!-- cd-main-content -->
+	</main>
+  <script src="/assets/javascripts/cng.main.js"></script>
 <script src="/assets/javascripts/items/jquery-2.1.1.js"></script>
 <script src="/assets/javascripts/items/jquery.mixitup.min.js"></script>
 <script src="/assets/javascripts/items/main.js"></script> <!-- Resource jQuery -->
+<script src="/assets/javascripts/items/items.js"></script>
 </body>
 </html>

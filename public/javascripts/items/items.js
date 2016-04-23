@@ -35,7 +35,7 @@
    */
   function create(item) {
     var itemLi = document.createElement("li");
-    itemLi.className = "item";
+    itemLi.className = "mix color-1 check1 radio2 option3 item";
 
     var itemInnerDiv = document.createElement("div");
     itemInnerDiv.className = "item-inner";
