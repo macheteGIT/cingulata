@@ -1,4 +1,5 @@
 (function() {
+  var gallery = document.querySelector(".products-grid");
   window.addEventListener("load", function() {
     cng.item.load();
   });
@@ -35,7 +36,8 @@
    */
   function create(item) {
     var itemLi = document.createElement("li");
-    itemLi.className = "mix color-1 check1 radio2 option3 item";
+    itemLi.style.display = 'none';
+    itemLi.className = "item";
 
     var itemInnerDiv = document.createElement("div");
     itemInnerDiv.className = "item-inner";
@@ -177,7 +179,29 @@
 
     itemLi.appendChild(itemInnerDiv);
 
-    document.querySelector(".products-grid").appendChild(itemLi);
+    gallery.appendChild(itemLi);
 
+    window.setTimeout(function() {
+      $(itemLi).fadeIn(400);
+    });
+  }
+}());
+
+/**
+* Toggle
+*/
+(function() {
+  $('.cd-filter-trigger').on('click', function(){
+    triggerFilter(true);
+  });
+  $('.cd-filter .cd-close').on('click', function(){
+    triggerFilter(false);
+  });
+
+  function triggerFilter($bool) {
+    var elementsToTrigger = $([$('.cd-filter-trigger'), $('.cd-filter'), $('.cd-tab-filter'), $('.cd-gallery')]);
+    elementsToTrigger.each(function(){
+      $(this).toggleClass('filter-is-visible', $bool);
+    });
   }
 }());

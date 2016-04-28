@@ -8,7 +8,6 @@ a {
 }
 a:hover {
     color: #4369a8;
-    text-decoration: underline;
 }
 .ssylka a {
     color: #568da7;
@@ -16,7 +15,6 @@ a:hover {
     line-height: 22px;
     display: block;
     height: 100%;
-    text-decoration: underline;
     float: right;
 }
 .nobr {
@@ -94,6 +92,9 @@ a:hover {
     width: 217px;
     margin-right: 13px;
     margin-bottom: 13px;
+    height: 320px;
+    background: #FFFFFF;
+    z-index: 0;
 }
 .catalog-category-view .category-products .products-grid li.item {
     width: 235px;
@@ -109,8 +110,6 @@ a:hover {
 .products-grid .item-inner {
     padding: 19px 18px 0 18px;
     position: relative;
-    z-index: 0;
-    width: 192px;
 }
 .catalog-category-view .category-products .products-grid .item-inner {
     padding: 19px 15px 0 15px;
@@ -187,7 +186,6 @@ div.wish-list .products-grid .item-inner:hover {
 }
 .products-grid .product-name {
     margin-bottom: 7px;
-    text-decoration: underline;
 }
 .products-grid .product-name:hover {
     color: #4369a8;
@@ -215,7 +213,6 @@ div.wish-list .products-grid .item-inner:hover {
 }
 .products-grid .ratings .add {
     font-size: 12px;
-    text-decoration: underline;
 }
 .products-grid .ratings .add:hover {
     color: #4369a8;
@@ -272,6 +269,7 @@ div.wish-list .products-grid .item-inner:hover {
     zoom: 1;
     width: 192px;
     background-color: white;
+    width: 220px;
 }
 .catalog-category-view .category-products .attributes .info-popup {
     padding: 4px 15px 10px 15px;
@@ -301,6 +299,7 @@ div.wish-list .products-grid .item-inner:hover {
     padding: 10px 0 4px 0;
     border-top: 1px solid #f0f0f0;
     max-height: 150px;
+    width: 215px;
     overflow: auto;
 }
 .attributes .info-popup .attr-content p {
@@ -323,15 +322,11 @@ div.wish-list .products-grid .item-inner:hover {
     padding: 3px 14px 6px 14px;
     width: 233px;
 }
-.products-grid .item-inner:hover {
-    z-index: 100;
-}
+
 .products-grid .item-inner:hover .attributes {
     z-index: 100;
 }
-.products-grid .item-inner:hover .item-inner {
-    z-index: 100;
-}
+
 .products-grid .item-inner:hover .attributes.por {
     z-index: 200;
     display: block;

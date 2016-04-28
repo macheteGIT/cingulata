@@ -20,8 +20,9 @@ import scala.concurrent.Future
   val items: MongoCollection = mongo.collection("items")
 
   def findByFilter(): Future[String] = {
+    val pagingRange = 50
     Future {
-      items.find().toList.slice(1, 8).map(obj => com.mongodb.util.JSON.serialize(obj)).mkString("[", ",", "]")
+      items.find().skip(pagingRange).limit(pagingRange).toList.map(obj => com.mongodb.util.JSON.serialize(obj)).mkString("[", ",", "]")
     }
   }
 

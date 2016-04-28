@@ -259,7 +259,7 @@ xgallery
 .cd-gallery li {
   margin-bottom: 1.6em;
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
-  display: none;
+  /*display: none;*/
 }
 .cd-gallery li.gap {
   /* used in combination with text-align: justify to align gallery elements */
