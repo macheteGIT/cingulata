@@ -41,6 +41,7 @@
 
     var itemInnerDiv = document.createElement("div");
     itemInnerDiv.className = "item-inner";
+    itemInnerDiv.id = item._id.$oid;
 
     var productImageA = document.createElement("a");
     productImageA.className = "product-image";
@@ -64,15 +65,11 @@
     productName.title = item.title;
     productName.innerText = item.title;
 
-    var itemIdContainer = document.createElement("p");
-    itemIdContainer.className = "item-id-container";
-    itemIdContainer.innerText = item._id.$oid;
-
-    var category = document.createElement("span");
+    var category = document.createElement("div");
     category.className = "category";
     category.innerText = item.category;
 
-    var subCategory = document.createElement("span");
+    var subCategory = document.createElement("div");
     subCategory.className = "sub-category";
     subCategory.innerText = item.subcategory;
 
@@ -164,8 +161,7 @@
     grid.appendChild(deliveryPeriod);
 
     productNameContainer.appendChild(productName);
-    productContainerAll.appendChild(productNameContainer)
-    productContainerAll.appendChild(itemIdContainer)
+    productContainerAll.appendChild(productNameContainer);
 
     productImageA.appendChild(productImageImg);
 
@@ -204,4 +200,9 @@
       $(this).toggleClass('filter-is-visible', $bool);
     });
   }
+
+  //close filter dropdown inside lateral .cd-filter
+  $('.cd-filter-block h4').on('click', function(){
+    $(this).toggleClass('closed').siblings('.cd-filter-content').slideToggle(300);
+  })
 }());
