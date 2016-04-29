@@ -9,5 +9,5 @@ import scala.concurrent.Future
   * Created by kuzmentsov@gmail.com
   */
 class ItemFilterService @Inject()(itemFilterDao: ItemFilterDao) {
-  def findByFilter(): Future[String] = itemFilterDao.findByFilter
+  def findItemsByFilter(filterJson: String): Future[String] = itemFilterDao.findItemsByFilter(filterJson)
 }

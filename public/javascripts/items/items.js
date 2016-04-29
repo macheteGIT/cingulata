@@ -10,7 +10,7 @@
    * Loading items into grid.
    */
   cng.item.load = function() {
-    cng.ajax.get("/item/filters/by", function(xhr) {
+    cng.ajax.get("/item/find", function(xhr) {
       createList(xhr.response)
     })
   }
