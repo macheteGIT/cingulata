@@ -1,4 +1,5 @@
 (function() {
+  var gallery = document.querySelector(".products-grid");
   window.addEventListener("load", function() {
     cng.item.load();
   });
@@ -9,7 +10,7 @@
    * Loading items into grid.
    */
   cng.item.load = function() {
-    cng.ajax.get("/item/filters/by", function(xhr) {
+    cng.ajax.get("/item/find", function(xhr) {
       createList(xhr.response)
     })
   }
@@ -35,10 +36,12 @@
    */
   function create(item) {
     var itemLi = document.createElement("li");
+    itemLi.style.display = 'none';
     itemLi.className = "item";
 
     var itemInnerDiv = document.createElement("div");
     itemInnerDiv.className = "item-inner";
+    itemInnerDiv.id = item._id.$oid;
 
     var productImageA = document.createElement("a");
     productImageA.className = "product-image";
@@ -47,7 +50,7 @@
 
     var productImageImg = document.createElement("img");
     productImageImg.className = "img";
-    productImageImg.src = "http://img.allo.ua/media/catalog/product/cache/1/small_image/192x131/602f0fa2c1f0d1ba5e241f914e856ff9/a/s/asus_a6410-bc011m_90pt00r1-m09000_.jpg";
+    productImageImg.src = "/assets/images/test-phone.jpg";
     productImageImg.alt = item.title;
 
     var productContainerAll = document.createElement("div");
@@ -62,15 +65,11 @@
     productName.title = item.title;
     productName.innerText = item.title;
 
-    var itemIdContainer = document.createElement("p");
-    itemIdContainer.className = "item-id-container";
-    itemIdContainer.innerText = item._id.$oid;
-
-    var category = document.createElement("span");
+    var category = document.createElement("div");
     category.className = "category";
     category.innerText = item.category;
 
-    var subCategory = document.createElement("span");
+    var subCategory = document.createElement("div");
     subCategory.className = "sub-category";
     subCategory.innerText = item.subcategory;
 
@@ -162,8 +161,7 @@
     grid.appendChild(deliveryPeriod);
 
     productNameContainer.appendChild(productName);
-    productContainerAll.appendChild(productNameContainer)
-    productContainerAll.appendChild(itemIdContainer)
+    productContainerAll.appendChild(productNameContainer);
 
     productImageA.appendChild(productImageImg);
 
@@ -177,7 +175,34 @@
 
     itemLi.appendChild(itemInnerDiv);
 
-    document.querySelector(".products-grid").appendChild(itemLi);
+    gallery.appendChild(itemLi);
 
+    window.setTimeout(function() {
+      $(itemLi).fadeIn(400);
+    });
   }
+}());
+
+/**
+* Toggle
+*/
+(function() {
+  $('.cd-filter-trigger').on('click', function(){
+    triggerFilter(true);
+  });
+  $('.cd-filter .cd-close').on('click', function(){
+    triggerFilter(false);
+  });
+
+  function triggerFilter($bool) {
+    var elementsToTrigger = $([$('.cd-filter-trigger'), $('.cd-filter'), $('.cd-tab-filter'), $('.cd-gallery')]);
+    elementsToTrigger.each(function(){
+      $(this).toggleClass('filter-is-visible', $bool);
+    });
+  }
+
+  //close filter dropdown inside lateral .cd-filter
+  $('.cd-filter-block h4').on('click', function(){
+    $(this).toggleClass('closed').siblings('.cd-filter-content').slideToggle(300);
+  })
 }());

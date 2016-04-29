@@ -11,19 +11,16 @@ import services.{ItemFilterService, ItemService}
   */
 class ItemFilterController @Inject()(itemService: ItemService, itemFilterService: ItemFilterService, val messagesApi: MessagesApi) extends Controller {
 
-  /**
-   * Returns merged filters template
-   * @return merged filters template.
-   */
-  def filters = Action.async {
+  def itemsFindByFilterAsJson = Action.async {
     implicit request => {
-      itemService.allCategories.map((categories: Seq[String]) => Ok(views.html.item.filters(categories)))
-    }
-  }
+      val findBy =
+        """
+          {
+            category: "atata"
+          }
+        """
 
-  def itemsByFilterAsJson = Action.async {
-    implicit request => {
-      itemFilterService.findByFilter.map((json: String) => Ok(json).as("application/json"))
+      itemFilterService.findItemsByFilter(findBy).map((json: String) => Ok(json).as("application/json"))
     }
   }
 

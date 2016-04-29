@@ -4,9 +4,3 @@ GET         /assets/*file                               @controllers.admin.Asset
 #categoies
 GET         /categories                                 @controllers.admin.ItemCategoryController.categories
 PUT         /categories/modify/:oldName/:newName        @controllers.admin.ItemCategoryController.updateCategory(oldName: String, newName: String)
-
-#subcategories
-GET         /subcategories                              @controllers.admin.ItemSubCategoryController.subcategories
-
-#admin
-GET         /general/activity                           @controllers.admin.GeneralController.userActivity

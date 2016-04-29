@@ -14,16 +14,8 @@ POST    /signin                                         @controllers.AuthControl
 GET 		/items/  								                        @controllers.Assets.at(path="/public", file="html/items/items_collection.html")
 GET 		/items/index  								                  @controllers.Assets.at(path="/public", file="html/items/items.html")
 
-#items
-GET         /item/details/:id                           @controllers.ItemController.details(id: String)
-GET         /item/all/:pageNum                          @controllers.ItemController.allForPage(pageNum: Int)
-
 #filters
-GET         /item/filters                               @controllers.ItemFilterController.filters
-GET         /item/filters/by                            @controllers.ItemFilterController.itemsByFilterAsJson
-
-#similarity
-GET 		    /item/similar/:id 							            @controllers.ItemSimilarityController.getSimilarTo(id: String)
+GET         /item/find                                  @controllers.ItemFilterController.itemsFindByFilterAsJson
 
 #session
 GET         /user/logout                                @controllers.AuthController.logout

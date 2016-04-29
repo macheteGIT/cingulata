@@ -35,7 +35,6 @@ class ItemCategoryController @Inject()(
    */
   def updateCategory(oldName: String, newName: String) = Action.async {
     implicit request => {
-      println(">>>>>>>>>>>>>>>> <M<<<<<<<<<<<<,,")
       categoryMappingService.set(DataMapping(oldName, newName))
       itemService.setCategoryName(oldName, newName).map((amount: Int) => Ok(amount.toString))
     }

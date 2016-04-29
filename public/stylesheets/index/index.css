@@ -42,11 +42,11 @@ body {
 
 img {
     border: none;
-    display: block
 }
 
 .logo {
   height: 55px;
+  vertical-align: middle;
 }
 
 .auth {
@@ -67,7 +67,13 @@ img {
   float: right;
   color: #3F3C46;
 }
-
+.badge-contacts {
+  display: inline-block;
+  vertical-align: middle;
+  font-weight: bold;
+  margin-left: 10px;
+  margin-bottom: 3px;
+}
 section{
   margin-top: 0px;
   padding-top: 0px;
@@ -102,6 +108,7 @@ section{
   margin: 0px 0 0 25px;
   width: 50px;
   height: 46px;
+  width: 240px;
 }
 
 .header #badge svg {
@@ -110,30 +117,28 @@ section{
 }
 
 .desc {
-  background: url(/assets/images/cngmain.jpg) fixed;
+  background: url(/assets/images/cngmain1.jpg) fixed;
   background-size: 100% auto;
   background-color: transparent;
   position: relative;
   max-width: inherit;
-  height: 600px;
+  height: 809px;
 }
-.desc h1 {
+
+.desc-content {
   position: absolute;
-  font-size: 50px;
-  color: white;
-  padding: 100px 60px;
-  line-height: 0px;
+  top: 100px;
+  left: 10px;
+  text-align: initial;
 }
-.desc h2 {
-  position: absolute;
-  padding: 400px;
-  line-height: 200px;
+.desc-content > h1{
+  font-size: 25px;
 }
 
 .content {
   max-width: inherit;
   background: #3F3C46;
-  height: 1000px;
+  height: 560px;
 }
 
 .section-header {
@@ -162,9 +167,8 @@ hr {
 
 .side-category {
   float: left;
-  padding-top: 15px;
-  margin: 20px;
-
+  width: 20%;
+  /*margin-left: 20px;*/
 }
 li:focus{
   border: none;
@@ -185,9 +189,16 @@ li:focus{
   cursor: pointer;
 }
 
-.category-wrapper{
+.nav-section-wrapper {
+  width: 100%;
+  height: 100%;
   margin-top: 52px;
+}
+
+.category-wrapper{
   margin-left: auto;
+  width: 80%;
+  float: right;
 }
 
 .category-wrapper .item-inner{
@@ -195,19 +206,23 @@ li:focus{
   display: inline-block;
   position: relative;
   margin-top: 0px;
-  margin: 7px 7px;
+  margin: 7px;
   background: url(/assets/images/laptop.jpg);
   opacity: 0.6;
   -webkit-background-size:cover;
-  width: 205px;
+  width: 281px;
   height: 180px;
   border: 2px solid #A5EAD7;
 }
 
-.item-inner span{
+.item-inner div {
+  height: 30%;
+  color: #3F3C46;
+  background-color: rgba(165, 234, 215, 0.77);
+  vertical-align: bottom;
+  margin-bottom: 0px;
   position: relative;
-  top: 130px;
-  padding-bottom:20px;
+  top: 123px;
 }
 .item-inner[data-type="image1"] {
   background: url(/assets/images/innovation.jpg);
@@ -241,14 +256,15 @@ li:focus{
 .link{
   color: white;
 }
- .item-inner:hover {
+ /*.item-inner:hover {
   opacity: 1;
-}
+}*/
 
 ul {
   float: left;
   font-size: 1.1em;
   padding: 0px;
+  margin: 0px;
 }
 .content .meta {
     margin: 0;
@@ -293,11 +309,8 @@ ul {
 }
 
 footer {
-  padding: 30px;
-    /*padding: 0px 0 25px 0;*/
-    border-top: 1px solid #A5EAD7;
-    background: #A5EAD7;
-
+  border-top: 1px solid #A5EAD7;
+  background: #A5EAD7;
 }
 .container span {
   margin: 0;
@@ -329,8 +342,6 @@ footer img {
     fill: #3a3a47
 }
 
-
-
 footer .copyright span.past a {
     position: relative;
     color: #3a3a47
@@ -343,9 +354,54 @@ footer span .copyright .past a:hover {
 footer .copyright span.small {
     font-size: 14px
 }
-.copyright{
-  float: none;
+
+.footer_panel {
+  padding-top: 10px;
+  padding-bottom: 20px;
 }
+
+.footer_data_holder {
+  margin: 0 auto;
+  max-width: 1140px;
+  width: 100%;
+  clear: both;
+  padding: 0 10px;
+  overflow: hidden;
+}
+
+.footer_cols_holder {
+  margin: 0 -10px 10px;
+  padding: 0 5px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+}
+
+.footer_cols_holder > ul {
+width: 20%;
+    list-style: none;
+    margin-bottom: 10px;
+}
+
+.footer_cols_holder > ul > li {
+  line-height: 2em;
+  font-size: 0.8em;
+}
+
+#copyright{
+  padding-bottom: 18px;
+  font-size: 0.7em;
+}
+
+#copyright > img {
+  vertical-align: middle;
+  height: 29px;
+}
+
 @media screen and (max-width:790px) {
 
   .category-wrapper .item-inner{
